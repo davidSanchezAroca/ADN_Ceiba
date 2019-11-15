@@ -1,10 +1,10 @@
-package co.ceiba.tiendamovie;
+package co.ceiba.movieStore;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class TiendamovieApplicationTests {
+class MovieStoreApplicationTests {
 
 	@Test
 	void contextLoads() {
