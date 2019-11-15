@@ -29,16 +29,23 @@ pipeline {
                                     submoduleCfg: [],
                                     userRemoteConfigs: [[
                                     credentialsId: 'GitHub_david.sanchez',
-                                    url:'https://github.com/davidSanchezAroca/ADNceiba_test.git'
+                                    url:'https://github.com/davidSanchezAroca/ADN_Ceiba.git'
                                     ]]
                                     ])
 
                                     }
                         }
+						
+						stage('Build project') { 
+							   steps { 
+									sh 'gradle --b ./tiendamovie/build.gradle clean'
+									sh 'gradle --b ./tiendamovie/build.gradle build'
+								}
+						}
                         stage('Compile & Unit Tests') {
                                     steps{
                                     echo "------------>Unit Tests<------------"
-                                    sh 'gradle --b .Tareas_gradle/build.gradle test'
+                                    sh 'gradle --b ./tiendamovie/build.gradle test'
                                     }
                         }
                         stage('Static Code Analysis') {
