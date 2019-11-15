@@ -1,4 +1,4 @@
-package co.ceiba.movieStore;
+package co.ceiba.moviestore;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

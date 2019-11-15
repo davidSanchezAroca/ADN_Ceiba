@@ -1,4 +1,4 @@
-package co.ceiba.movieStore;
+package co.ceiba.moviestore;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
