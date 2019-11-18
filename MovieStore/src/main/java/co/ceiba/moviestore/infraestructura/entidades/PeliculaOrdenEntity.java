@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
-public class Pelicula_x_OrdenEntity implements Serializable {
+public class PeliculaOrdenEntity implements Serializable {
 
 	/**
 	 * Atributos de la entidad Pelicula_x_Orden
@@ -38,7 +38,7 @@ public class Pelicula_x_OrdenEntity implements Serializable {
 	@Column(name = "cantidad")
 	private Integer cantidad;
 
-	public Pelicula_x_OrdenEntity() {
+	public PeliculaOrdenEntity() {
 		super();
 	}
 

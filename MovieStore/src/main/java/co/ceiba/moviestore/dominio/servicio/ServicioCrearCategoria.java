@@ -1,10 +1,13 @@
 package co.ceiba.moviestore.dominio.servicio;
 
 
+import org.springframework.stereotype.Component;
+
 import co.ceiba.moviestore.dominio.excepcion.ExcepcionDuplicidad;
 import co.ceiba.moviestore.dominio.modelo.Categoria;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCategoria;
 
+@Component
 public class ServicioCrearCategoria {
 
 	private static final String LA_CATEGORIA_YA_EXISTE_EN_EL_SISTEMA = "La categoria ya existe en el sistema";
@@ -12,7 +15,6 @@ public class ServicioCrearCategoria {
 	private RepositorioCategoria repositorioCategoria;
 
 	public ServicioCrearCategoria(RepositorioCategoria repositorioCategoria) {
-		super();
 		this.repositorioCategoria = repositorioCategoria;
 	}
 	

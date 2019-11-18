@@ -1,19 +1,24 @@
-package co.ceiba.moviestore.dominio.modelo;
+package co.ceiba.moviestore.aplicacion.comando;
 
-public class Categoria {
+
+
+
+public class ComandoCategoria {
 	
-	private static final String EL_NOMBRE_ES_UN_DATO_OBLIGATORIO = "El nombre es un dato obligatorio.";
-
 	private Integer idCategoria;
 	
 	private String nombre;
-
 	
-
-	public Categoria(Integer idCategoria, String nombre) {
-		ValidadorArgumento.validarObligatorio(nombre, EL_NOMBRE_ES_UN_DATO_OBLIGATORIO);		
+	
+	
+	public ComandoCategoria(Integer idCategoria, String nombre) {
+		super();
 		this.idCategoria = idCategoria;
 		this.nombre = nombre;
+	}
+
+	public ComandoCategoria() {
+		super();
 	}
 
 	/**
