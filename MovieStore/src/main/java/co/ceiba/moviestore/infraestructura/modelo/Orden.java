@@ -1,10 +1,12 @@
-package co.ceiba.moviestore.dominio.modelo;
+package co.ceiba.moviestore.infraestructura.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -26,8 +28,9 @@ public class Orden implements Serializable {
 
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="numeroOrden")
-	private String numeroOrden;
+	private Integer numeroOrden;
 	
 	@Column(name="fechaOrden")
 	@Temporal(TemporalType.DATE)
@@ -52,19 +55,25 @@ public class Orden implements Serializable {
 		super();
 	}
 
+
+
 	/**
 	 * @return Metodo que obtiene el valor de la variable numeroOrden
 	 */
-	public String getNumeroOrden() {
+	public Integer getNumeroOrden() {
 		return numeroOrden;
 	}
 
+
+
 	/**
-	 * @param numeroOrden variable que modifica el valor  numeroOrden 
+	 * @param numeroOrden Variable que modifica a  numeroOrden 
 	 */
-	public void setNumeroOrden(String numeroOrden) {
+	public void setNumeroOrden(Integer numeroOrden) {
 		this.numeroOrden = numeroOrden;
 	}
+
+
 
 	/**
 	 * @return Metodo que obtiene el valor de la variable fechaOrden

@@ -1,4 +1,4 @@
-package co.ceiba.moviestore.dominio.modelo;
+package co.ceiba.moviestore.infraestructura.modelo;
 
 import java.io.Serializable;
 
@@ -24,6 +24,7 @@ public class Pelicula implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="idPelicula")
 	private Integer idProducto;
 	
 	@Column(name="nombre")

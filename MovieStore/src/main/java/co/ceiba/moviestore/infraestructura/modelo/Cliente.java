@@ -1,4 +1,4 @@
-package co.ceiba.moviestore.dominio.modelo;
+package co.ceiba.moviestore.infraestructura.modelo;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -35,8 +35,7 @@ public class Cliente implements Serializable {
 	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;
 	
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name ="sesion_id", referencedColumnName = "id")
+	@OneToOne(mappedBy = "cliente")
 	private InformacionSesion sesion;
 
 	public Cliente() {

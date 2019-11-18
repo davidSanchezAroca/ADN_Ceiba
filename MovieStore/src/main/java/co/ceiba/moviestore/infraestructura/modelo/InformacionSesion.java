@@ -1,4 +1,4 @@
-package co.ceiba.moviestore.dominio.modelo;
+package co.ceiba.moviestore.infraestructura.modelo;
 
 import java.io.Serializable;
 
@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 
 /**
@@ -32,7 +33,8 @@ public class InformacionSesion implements Serializable{
 	@Column(name = "password")
 	private String password;
 	
-	@OneToOne(mappedBy = "sesion")
+	@OneToOne
+	@JoinColumn(name="cedula",insertable = false,updatable = false)
 	private Cliente cliente;
 
 	public InformacionSesion() {

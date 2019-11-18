@@ -1,4 +1,4 @@
-package co.ceiba.moviestore.dominio.modelo;
+package co.ceiba.moviestore.infraestructura.modelo;
 
 import java.io.Serializable;
 import javax.persistence.Column;
