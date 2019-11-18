@@ -19,7 +19,6 @@ apply plugin: 'jacoco'
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-	
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 	testCompile 'org.junit.jupiter:junit-jupiter-engine:5.2.0'
 	testCompile('org.mockito:mockito-junit-jupiter:2.23.0')
@@ -30,10 +29,19 @@ dependencies {
 	
 }
 
+jacocoTestReport {
+   reports {
+       xml.enabled true
+       csv.enabled true
+       html.destination file("${buildDir}/test-results/jacocoHtml")
+   }
+}
+
 test {
 	useJUnitPlatform()
 	dependsOn 'cleanTest'
 }
+
 
 sonarqube {
 	properties {
