@@ -1,4 +1,4 @@
-package co.ceiba.moviestore.infraestructura.modelo;
+package co.ceiba.moviestore.infraestructura.entidades;
 
 import java.io.Serializable;
 
@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
  *
  */
 @Entity
-public class InformacionSesion implements Serializable{
+public class InformacionSesionEntity implements Serializable{
 	
 	/**
 	 * Atributos de la entidad informacionSesion
@@ -35,9 +35,9 @@ public class InformacionSesion implements Serializable{
 	
 	@OneToOne
 	@JoinColumn(name="cedula",insertable = false,updatable = false)
-	private Cliente cliente;
+	private ClienteEntity cliente;
 
-	public InformacionSesion() {
+	public InformacionSesionEntity() {
 		super();
 	}
 
@@ -90,14 +90,14 @@ public class InformacionSesion implements Serializable{
 	/**
 	 * @return Metodo que obtiene el valor de la variable cliente
 	 */
-	public Cliente getCliente() {
+	public ClienteEntity getCliente() {
 		return cliente;
 	}
 
 	/**
 	 * @param cliente variable que modifica el valor  cliente 
 	 */
-	public void setCliente(Cliente cliente) {
+	public void setCliente(ClienteEntity cliente) {
 		this.cliente = cliente;
 	}
 	

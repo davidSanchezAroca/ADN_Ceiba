@@ -1,4 +1,4 @@
-package co.ceiba.moviestore.infraestructura.modelo;
+package co.ceiba.moviestore.infraestructura.entidades;
 
 import java.io.Serializable;
 
@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
-public class Categoria_x_Pelicula implements Serializable{
+public class Categoria_x_PeliculaEntity implements Serializable{
 
 	/**
 	 * Atributos de la entidad Categoria_x_Pelicula
@@ -28,14 +28,14 @@ public class Categoria_x_Pelicula implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name="idCategoria",insertable = false,updatable = false)
-	private Categoria idCategoria;
+	private CategoriaEntity idCategoria;
 	
 	@ManyToOne
 	@JoinColumn(name = "idPelicula", insertable = false,updatable = false)
-	private Pelicula idPelicula;
+	private PeliculaEntity idPelicula;
 
 	
-	public Categoria_x_Pelicula() {
+	public Categoria_x_PeliculaEntity() {
 		super();
 	}
 
@@ -59,7 +59,7 @@ public class Categoria_x_Pelicula implements Serializable{
 	/**
 	 * @return Metodo que obtiene el valor de la variable idCategoria
 	 */
-	public Categoria getIdCategoria() {
+	public CategoriaEntity getIdCategoria() {
 		return idCategoria;
 	}
 
@@ -67,7 +67,7 @@ public class Categoria_x_Pelicula implements Serializable{
 	/**
 	 * @param idCategoria Variable que modifica a  idCategoria 
 	 */
-	public void setIdCategoria(Categoria idCategoria) {
+	public void setIdCategoria(CategoriaEntity idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 
@@ -75,7 +75,7 @@ public class Categoria_x_Pelicula implements Serializable{
 	/**
 	 * @return Metodo que obtiene el valor de la variable idPelicula
 	 */
-	public Pelicula getIdPelicula() {
+	public PeliculaEntity getIdPelicula() {
 		return idPelicula;
 	}
 
@@ -83,7 +83,7 @@ public class Categoria_x_Pelicula implements Serializable{
 	/**
 	 * @param idPelicula Variable que modifica a  idPelicula 
 	 */
-	public void setIdPelicula(Pelicula idPelicula) {
+	public void setIdPelicula(PeliculaEntity idPelicula) {
 		this.idPelicula = idPelicula;
 	}
 	

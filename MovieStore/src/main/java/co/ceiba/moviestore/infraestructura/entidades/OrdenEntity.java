@@ -1,4 +1,4 @@
-package co.ceiba.moviestore.infraestructura.modelo;
+package co.ceiba.moviestore.infraestructura.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
  *
  */
 @Entity
-public class Orden implements Serializable {
+public class OrdenEntity implements Serializable {
 
 	/**
 	 * Atributos de la entidad Orden
@@ -49,9 +49,9 @@ public class Orden implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "cedula", nullable = false)
-	private Cliente cliente;
+	private ClienteEntity cliente;
 
-	public Orden() {
+	public OrdenEntity() {
 		super();
 	}
 
@@ -134,14 +134,14 @@ public class Orden implements Serializable {
 	/**
 	 * @return Metodo que obtiene el valor de la variable cliente
 	 */
-	public Cliente getCliente() {
+	public ClienteEntity getCliente() {
 		return cliente;
 	}
 
 	/**
 	 * @param cliente variable que modifica el valor  cliente 
 	 */
-	public void setCliente(Cliente cliente) {
+	public void setCliente(ClienteEntity cliente) {
 		this.cliente = cliente;
 	}
 

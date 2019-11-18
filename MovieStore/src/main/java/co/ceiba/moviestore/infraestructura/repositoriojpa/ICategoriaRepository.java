@@ -3,11 +3,11 @@ package co.ceiba.moviestore.infraestructura.repositoriojpa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import co.ceiba.moviestore.infraestructura.modelo.Categoria;
+import co.ceiba.moviestore.infraestructura.entidades.CategoriaEntity;
 
 @Repository
-public interface ICategoriaRepository  extends JpaRepository<Categoria, Integer>{
+public interface ICategoriaRepository  extends JpaRepository<CategoriaEntity, Integer>{
 
-	Categoria findByNombre(String nombre);
+	CategoriaEntity findByNombre(String nombre);
 	
 }

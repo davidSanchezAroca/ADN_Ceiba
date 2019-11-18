@@ -1,4 +1,4 @@
-package co.ceiba.moviestore.infraestructura.modelo;
+package co.ceiba.moviestore.infraestructura.entidades;
 
 import java.io.Serializable;
 import javax.persistence.Column;
@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
-public class TarjetaCredito implements Serializable{
+public class TarjetaCreditoEntity implements Serializable{
 
 	/**
 	 * Atributos de la entidad tarjeta de credito 
@@ -34,9 +34,9 @@ public class TarjetaCredito implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "cedula", nullable = false)
-	private Cliente cliente;
+	private ClienteEntity cliente;
 
-	public TarjetaCredito() {
+	public TarjetaCreditoEntity() {
 		super();
 	}
 
@@ -91,14 +91,14 @@ public class TarjetaCredito implements Serializable{
 	/**
 	 * @return Metodo que obtiene el valor de la variable cliente
 	 */
-	public Cliente getCliente() {
+	public ClienteEntity getCliente() {
 		return cliente;
 	}
 
 	/**
 	 * @param cliente variable que modifica el valor  cliente 
 	 */
-	public void setCliente(Cliente cliente) {
+	public void setCliente(ClienteEntity cliente) {
 		this.cliente = cliente;
 	}
 

@@ -1,4 +1,4 @@
-package co.ceiba.moviestore.infraestructura.modelo;
+package co.ceiba.moviestore.infraestructura.entidades;
 
 import java.io.Serializable;
 
@@ -14,7 +14,7 @@ import javax.persistence.Id;
  *
  */
 @Entity
-public class Pelicula implements Serializable{
+public class PeliculaEntity implements Serializable{
 	
 	/**
 	 * Atributos de la entidad pelicula
@@ -33,7 +33,7 @@ public class Pelicula implements Serializable{
 	@Column(name ="valor")
 	private double valor;
 
-	public Pelicula() {
+	public PeliculaEntity() {
 		super();
 	}
 

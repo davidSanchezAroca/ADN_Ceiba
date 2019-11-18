@@ -1,4 +1,4 @@
-package co.ceiba.moviestore.infraestructura.modelo;
+package co.ceiba.moviestore.infraestructura.entidades;
 
 import java.io.Serializable;
 
@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
-public class Pelicula_x_Orden implements Serializable {
+public class Pelicula_x_OrdenEntity implements Serializable {
 
 	/**
 	 * Atributos de la entidad Pelicula_x_Orden
@@ -29,16 +29,16 @@ public class Pelicula_x_Orden implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="idPelicula", insertable = false, updatable = false)
-	private Pelicula idPelicula;
+	private PeliculaEntity idPelicula;
 	
 	@ManyToOne
 	@JoinColumn(name = "numeroOrden", insertable = false, updatable = false)
-	private Orden numeroOrden;
+	private OrdenEntity numeroOrden;
 	
 	@Column(name = "cantidad")
 	private Integer cantidad;
 
-	public Pelicula_x_Orden() {
+	public Pelicula_x_OrdenEntity() {
 		super();
 	}
 
@@ -59,28 +59,28 @@ public class Pelicula_x_Orden implements Serializable {
 	/**
 	 * @return Metodo que obtiene el valor de la variable idPelicula
 	 */
-	public Pelicula getIdPelicula() {
+	public PeliculaEntity getIdPelicula() {
 		return idPelicula;
 	}
 
 	/**
 	 * @param idPelicula Variable que modifica a  idPelicula 
 	 */
-	public void setIdPelicula(Pelicula idPelicula) {
+	public void setIdPelicula(PeliculaEntity idPelicula) {
 		this.idPelicula = idPelicula;
 	}
 
 	/**
 	 * @return Metodo que obtiene el valor de la variable numeroOrden
 	 */
-	public Orden getNumeroOrden() {
+	public OrdenEntity getNumeroOrden() {
 		return numeroOrden;
 	}
 
 	/**
 	 * @param numeroOrden Variable que modifica a  numeroOrden 
 	 */
-	public void setNumeroOrden(Orden numeroOrden) {
+	public void setNumeroOrden(OrdenEntity numeroOrden) {
 		this.numeroOrden = numeroOrden;
 	}
 

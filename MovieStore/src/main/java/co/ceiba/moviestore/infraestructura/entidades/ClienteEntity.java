@@ -1,4 +1,4 @@
-package co.ceiba.moviestore.infraestructura.modelo;
+package co.ceiba.moviestore.infraestructura.entidades;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -14,7 +14,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-public class Cliente implements Serializable {
+public class ClienteEntity implements Serializable {
 
 	/**
 	 * Atributos de la entidad cliente 
@@ -36,9 +36,9 @@ public class Cliente implements Serializable {
 	private Date fechaNacimiento;
 	
 	@OneToOne(mappedBy = "cliente")
-	private InformacionSesion sesion;
+	private InformacionSesionEntity sesion;
 
-	public Cliente() {
+	public ClienteEntity() {
 		super();
 	}
 
@@ -101,14 +101,14 @@ public class Cliente implements Serializable {
 	/**
 	 * @return Metodo que obtiene el valor de la variable sesion
 	 */
-	public InformacionSesion getSesion() {
+	public InformacionSesionEntity getSesion() {
 		return sesion;
 	}
 
 	/**
 	 * @param sesion variable que modifica el valor  sesion 
 	 */
-	public void setSesion(InformacionSesion sesion) {
+	public void setSesion(InformacionSesionEntity sesion) {
 		this.sesion = sesion;
 	}
 	
