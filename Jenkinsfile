@@ -46,6 +46,7 @@ pipeline {
                                     steps{
                                     echo "------------>Unit Tests<------------"
                                     sh 'gradle --b ./MovieStore/build.gradle test'
+									 sh 'gradle --b ./MovieStore/build.gradle jacocoTestReport'
                                     }
                         }
                         stage('Static Code Analysis') {
