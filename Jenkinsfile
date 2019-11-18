@@ -38,14 +38,14 @@ pipeline {
 						
 						stage('Build project') { 
 							   steps { 
-									sh 'gradle --b ./tiendamovie/build.gradle clean'
-									sh 'gradle --b ./tiendamovie/build.gradle build'
+									sh 'gradle --b ./MovieStore/build.gradle clean'
+									sh 'gradle --b ./MovieStore/build.gradle build'
 								}
 						}
                         stage('Compile & Unit Tests') {
                                     steps{
                                     echo "------------>Unit Tests<------------"
-                                    sh 'gradle --b ./tiendamovie/build.gradle test'
+                                    sh 'gradle --b ./MovieStore/build.gradle test'
                                     }
                         }
                         stage('Static Code Analysis') {
