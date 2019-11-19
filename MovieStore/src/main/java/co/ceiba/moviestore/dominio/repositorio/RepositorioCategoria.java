@@ -37,10 +37,5 @@ public interface RepositorioCategoria {
 	List<ComandoCategoria> listar();
 	
 	
-	/**
-	 * Permite buscar una categoria por nombre
-	 * @param nombre nombre de la categoria 
-	 * @return categoria
-	 */
-	ComandoCategoria buscar(String nombre);
+
 }

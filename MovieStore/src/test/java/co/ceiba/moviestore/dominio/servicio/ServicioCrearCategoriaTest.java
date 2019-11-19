@@ -7,6 +7,8 @@ import co.ceiba.moviestore.MovieStoreApplicationTests;
 import co.ceiba.moviestore.dominio.excepcion.ExcepcionDuplicidad;
 import co.ceiba.moviestore.dominio.modelo.Categoria;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCategoria;
+import co.ceiba.moviestore.dominio.servicio.categoria.ServicioConsultarCategorias;
+import co.ceiba.moviestore.dominio.servicio.categoria.ServicioCrearCategoria;
 import co.ceiba.moviestore.dominio.testdatabuilder.CategoriaTestDataBuilder;
 
 public class ServicioCrearCategoriaTest {

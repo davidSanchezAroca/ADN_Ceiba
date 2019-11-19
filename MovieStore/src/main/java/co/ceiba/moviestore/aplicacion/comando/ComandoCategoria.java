@@ -1,11 +1,8 @@
 package co.ceiba.moviestore.aplicacion.comando;
 
 public class ComandoCategoria {
-	
-	
+
 	private String nombre;
-	
-	
 	
 	public ComandoCategoria( String nombre) {
 		this.nombre = nombre;

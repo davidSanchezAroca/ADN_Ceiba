@@ -56,14 +56,6 @@ public class RepositorioCategoriaJpa implements RepositorioCategoria {
 		return listaCategorias;
 	}
 
-	@Override
-	public ComandoCategoria buscar(String nombre) {
-		List<CategoriaEntidad> categoriaEntidad= repositorioJpa.findByNombre(nombre);	
-		ComandoCategoria comandoCategoria=null; 
-		if(!categoriaEntidad.isEmpty()) {
-			comandoCategoria=modelMapper.map(categoriaEntidad.get(0), ComandoCategoria.class);
-		}
-		return comandoCategoria;
-	}
+
 
 }
