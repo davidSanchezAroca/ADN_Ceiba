@@ -14,7 +14,7 @@ import javax.persistence.Id;
  *
  */
 @Entity
-public class PeliculaEntity implements Serializable{
+public class PeliculaEntidad implements Serializable{
 	
 	/**
 	 * Atributos de la entidad pelicula
@@ -33,7 +33,7 @@ public class PeliculaEntity implements Serializable{
 	@Column(name ="valor")
 	private double valor;
 
-	public PeliculaEntity() {
+	public PeliculaEntidad() {
 		super();
 	}
 

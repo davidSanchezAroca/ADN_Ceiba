@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
-public class TarjetaCreditoEntity implements Serializable{
+public class TarjetaCreditoEntidad implements Serializable{
 
 	/**
 	 * Atributos de la entidad tarjeta de credito 
@@ -34,9 +34,9 @@ public class TarjetaCreditoEntity implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "cedula", nullable = false)
-	private ClienteEntity cliente;
+	private ClienteEntidad cliente;
 
-	public TarjetaCreditoEntity() {
+	public TarjetaCreditoEntidad() {
 		super();
 	}
 
@@ -91,14 +91,14 @@ public class TarjetaCreditoEntity implements Serializable{
 	/**
 	 * @return Metodo que obtiene el valor de la variable cliente
 	 */
-	public ClienteEntity getCliente() {
+	public ClienteEntidad getCliente() {
 		return cliente;
 	}
 
 	/**
 	 * @param cliente variable que modifica el valor  cliente 
 	 */
-	public void setCliente(ClienteEntity cliente) {
+	public void setCliente(ClienteEntidad cliente) {
 		this.cliente = cliente;
 	}
 

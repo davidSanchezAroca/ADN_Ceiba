@@ -9,6 +9,6 @@ import co.ceiba.moviestore.dominio.modelo.Categoria;
 public class FabricaCategoria {
 
 	public Categoria crearCategoria(ComandoCategoria comandoCategoria) {
-		return new Categoria(comandoCategoria.getIdCategoria(), comandoCategoria.getNombre());
+		return new Categoria(comandoCategoria.getNombre());
 	}
 }

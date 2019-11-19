@@ -15,7 +15,7 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
-public class CategoriaPeliculaEntity implements Serializable{
+public class CategoriaPeliculaEntidad implements Serializable{
 
 	/**
 	 * Atributos de la entidad Categoria_x_Pelicula
@@ -28,14 +28,14 @@ public class CategoriaPeliculaEntity implements Serializable{
 
 	@ManyToOne
 	@JoinColumn(name="idCategoria",insertable = false,updatable = false)
-	private CategoriaEntity idCategoria;
+	private CategoriaEntidad idCategoria;
 	
 	@ManyToOne
 	@JoinColumn(name = "idPelicula", insertable = false,updatable = false)
-	private PeliculaEntity idPelicula;
+	private PeliculaEntidad idPelicula;
 
 	
-	public CategoriaPeliculaEntity() {
+	public CategoriaPeliculaEntidad() {
 		super();
 	}
 
@@ -59,7 +59,7 @@ public class CategoriaPeliculaEntity implements Serializable{
 	/**
 	 * @return Metodo que obtiene el valor de la variable idCategoria
 	 */
-	public CategoriaEntity getIdCategoria() {
+	public CategoriaEntidad getIdCategoria() {
 		return idCategoria;
 	}
 
@@ -67,7 +67,7 @@ public class CategoriaPeliculaEntity implements Serializable{
 	/**
 	 * @param idCategoria Variable que modifica a  idCategoria 
 	 */
-	public void setIdCategoria(CategoriaEntity idCategoria) {
+	public void setIdCategoria(CategoriaEntidad idCategoria) {
 		this.idCategoria = idCategoria;
 	}
 
@@ -75,7 +75,7 @@ public class CategoriaPeliculaEntity implements Serializable{
 	/**
 	 * @return Metodo que obtiene el valor de la variable idPelicula
 	 */
-	public PeliculaEntity getIdPelicula() {
+	public PeliculaEntidad getIdPelicula() {
 		return idPelicula;
 	}
 
@@ -83,7 +83,7 @@ public class CategoriaPeliculaEntity implements Serializable{
 	/**
 	 * @param idPelicula Variable que modifica a  idPelicula 
 	 */
-	public void setIdPelicula(PeliculaEntity idPelicula) {
+	public void setIdPelicula(PeliculaEntidad idPelicula) {
 		this.idPelicula = idPelicula;
 	}
 	

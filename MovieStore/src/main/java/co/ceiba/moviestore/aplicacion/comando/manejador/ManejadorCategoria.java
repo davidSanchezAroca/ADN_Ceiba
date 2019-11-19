@@ -1,4 +1,6 @@
 package co.ceiba.moviestore.aplicacion.comando.manejador;
+import java.util.List;
+
 import org.springframework.stereotype.Component;
 
 import co.ceiba.moviestore.aplicacion.comando.ComandoCategoria;
@@ -7,22 +9,27 @@ import co.ceiba.moviestore.dominio.modelo.Categoria;
 import co.ceiba.moviestore.dominio.servicio.ServicioCrearCategoria;
 
 @Component
-public class ManejadorCrearCategoria {
+public class ManejadorCategoria {
 	
 	private final ServicioCrearCategoria servicioCrearCategoria;
 	
 	private final FabricaCategoria fabricaCategoria;
 
-	public ManejadorCrearCategoria(ServicioCrearCategoria servicioCrearCategoria, FabricaCategoria fabricaCategoria) {
-		super();
+	public ManejadorCategoria(ServicioCrearCategoria servicioCrearCategoria, FabricaCategoria fabricaCategoria) {
 		this.servicioCrearCategoria = servicioCrearCategoria;
 		this.fabricaCategoria = fabricaCategoria;
 	}
 	
 	public void crear(ComandoCategoria comandoCategoria) {
-		System.out.println("hola");
 		Categoria categoria=this.fabricaCategoria.crearCategoria(comandoCategoria);
 		this.servicioCrearCategoria.crear(categoria);
 	}
+	
+	public void eliminar(String nombre) {
+		this.servicioCrearCategoria.eliminar(nombre);
+	}
 
+	public List<ComandoCategoria> listar(){
+		return this.servicioCrearCategoria.listar();
+	}
 }

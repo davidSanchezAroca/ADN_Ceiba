@@ -14,7 +14,7 @@ import javax.persistence.*;
  *
  */
 @Entity
-public class ClienteEntity implements Serializable {
+public class ClienteEntidad implements Serializable {
 
 	/**
 	 * Atributos de la entidad cliente 
@@ -36,9 +36,9 @@ public class ClienteEntity implements Serializable {
 	private Date fechaNacimiento;
 	
 	@OneToOne(mappedBy = "cliente")
-	private InformacionSesionEntity sesion;
+	private InformacionSesionEntidad sesion;
 
-	public ClienteEntity() {
+	public ClienteEntidad() {
 		super();
 	}
 
@@ -101,14 +101,14 @@ public class ClienteEntity implements Serializable {
 	/**
 	 * @return Metodo que obtiene el valor de la variable sesion
 	 */
-	public InformacionSesionEntity getSesion() {
+	public InformacionSesionEntidad getSesion() {
 		return sesion;
 	}
 
 	/**
 	 * @param sesion variable que modifica el valor  sesion 
 	 */
-	public void setSesion(InformacionSesionEntity sesion) {
+	public void setSesion(InformacionSesionEntidad sesion) {
 		this.sesion = sesion;
 	}
 	

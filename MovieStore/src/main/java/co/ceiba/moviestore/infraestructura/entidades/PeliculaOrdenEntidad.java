@@ -16,7 +16,7 @@ import javax.persistence.ManyToOne;
  *
  */
 @Entity
-public class PeliculaOrdenEntity implements Serializable {
+public class PeliculaOrdenEntidad implements Serializable {
 
 	/**
 	 * Atributos de la entidad Pelicula_x_Orden
@@ -29,16 +29,16 @@ public class PeliculaOrdenEntity implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name="idPelicula", insertable = false, updatable = false)
-	private PeliculaEntity idPelicula;
+	private PeliculaEntidad idPelicula;
 	
 	@ManyToOne
 	@JoinColumn(name = "numeroOrden", insertable = false, updatable = false)
-	private OrdenEntity numeroOrden;
+	private OrdenEntidad numeroOrden;
 	
 	@Column(name = "cantidad")
 	private Integer cantidad;
 
-	public PeliculaOrdenEntity() {
+	public PeliculaOrdenEntidad() {
 		super();
 	}
 
@@ -59,28 +59,28 @@ public class PeliculaOrdenEntity implements Serializable {
 	/**
 	 * @return Metodo que obtiene el valor de la variable idPelicula
 	 */
-	public PeliculaEntity getIdPelicula() {
+	public PeliculaEntidad getIdPelicula() {
 		return idPelicula;
 	}
 
 	/**
 	 * @param idPelicula Variable que modifica a  idPelicula 
 	 */
-	public void setIdPelicula(PeliculaEntity idPelicula) {
+	public void setIdPelicula(PeliculaEntidad idPelicula) {
 		this.idPelicula = idPelicula;
 	}
 
 	/**
 	 * @return Metodo que obtiene el valor de la variable numeroOrden
 	 */
-	public OrdenEntity getNumeroOrden() {
+	public OrdenEntidad getNumeroOrden() {
 		return numeroOrden;
 	}
 
 	/**
 	 * @param numeroOrden Variable que modifica a  numeroOrden 
 	 */
-	public void setNumeroOrden(OrdenEntity numeroOrden) {
+	public void setNumeroOrden(OrdenEntidad numeroOrden) {
 		this.numeroOrden = numeroOrden;
 	}
 

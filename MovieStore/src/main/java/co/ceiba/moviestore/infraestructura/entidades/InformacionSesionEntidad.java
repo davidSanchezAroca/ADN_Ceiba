@@ -16,7 +16,7 @@ import javax.persistence.OneToOne;
  *
  */
 @Entity
-public class InformacionSesionEntity implements Serializable{
+public class InformacionSesionEntidad implements Serializable{
 	
 	/**
 	 * Atributos de la entidad informacionSesion
@@ -35,9 +35,9 @@ public class InformacionSesionEntity implements Serializable{
 	
 	@OneToOne
 	@JoinColumn(name="cedula",insertable = false,updatable = false)
-	private ClienteEntity cliente;
+	private ClienteEntidad cliente;
 
-	public InformacionSesionEntity() {
+	public InformacionSesionEntidad() {
 		super();
 	}
 
@@ -90,14 +90,14 @@ public class InformacionSesionEntity implements Serializable{
 	/**
 	 * @return Metodo que obtiene el valor de la variable cliente
 	 */
-	public ClienteEntity getCliente() {
+	public ClienteEntidad getCliente() {
 		return cliente;
 	}
 
 	/**
 	 * @param cliente variable que modifica el valor  cliente 
 	 */
-	public void setCliente(ClienteEntity cliente) {
+	public void setCliente(ClienteEntidad cliente) {
 		this.cliente = cliente;
 	}
 	

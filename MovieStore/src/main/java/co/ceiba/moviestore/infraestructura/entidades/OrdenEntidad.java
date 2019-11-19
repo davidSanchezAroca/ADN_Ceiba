@@ -19,7 +19,7 @@ import javax.persistence.TemporalType;
  *
  */
 @Entity
-public class OrdenEntity implements Serializable {
+public class OrdenEntidad implements Serializable {
 
 	/**
 	 * Atributos de la entidad Orden
@@ -49,9 +49,9 @@ public class OrdenEntity implements Serializable {
 	
 	@ManyToOne
 	@JoinColumn(name = "cedula", nullable = false)
-	private ClienteEntity cliente;
+	private ClienteEntidad cliente;
 
-	public OrdenEntity() {
+	public OrdenEntidad() {
 		super();
 	}
 
@@ -134,14 +134,14 @@ public class OrdenEntity implements Serializable {
 	/**
 	 * @return Metodo que obtiene el valor de la variable cliente
 	 */
-	public ClienteEntity getCliente() {
+	public ClienteEntidad getCliente() {
 		return cliente;
 	}
 
 	/**
 	 * @param cliente variable que modifica el valor  cliente 
 	 */
-	public void setCliente(ClienteEntity cliente) {
+	public void setCliente(ClienteEntidad cliente) {
 		this.cliente = cliente;
 	}
 

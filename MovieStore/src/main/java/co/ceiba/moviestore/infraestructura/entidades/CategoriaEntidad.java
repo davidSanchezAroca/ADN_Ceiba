@@ -14,7 +14,7 @@ import javax.persistence.Id;
  *
  */
 @Entity
-public class CategoriaEntity implements Serializable {
+public class CategoriaEntidad implements Serializable {
 
 	/**
 	 * Atributos de la entidad categoria
@@ -28,7 +28,7 @@ public class CategoriaEntity implements Serializable {
 	@Column(name ="nombre")
 	private String nombre;
 
-	public CategoriaEntity() {
+	public CategoriaEntidad() {
 		super();
 	}
 

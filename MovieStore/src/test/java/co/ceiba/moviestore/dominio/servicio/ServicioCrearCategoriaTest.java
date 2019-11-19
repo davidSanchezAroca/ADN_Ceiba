@@ -15,7 +15,7 @@ public class ServicioCrearCategoriaTest {
 	public void validarExistenciaPrevia() {
 		Categoria cat= new CategoriaTestDataBuilder().build();
 		RepositorioCategoria repoCat= Mockito.mock(RepositorioCategoria.class);
-		Mockito.when(repoCat.existeCategoria(Mockito.any())).thenReturn(true);
+		Mockito.when(repoCat.existe(Mockito.any())).thenReturn(true);
 		
 		ServicioCrearCategoria servicioCrearCategoria = new ServicioCrearCategoria(repoCat);
 		
