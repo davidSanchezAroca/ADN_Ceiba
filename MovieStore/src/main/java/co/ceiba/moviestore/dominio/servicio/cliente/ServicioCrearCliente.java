@@ -16,12 +16,10 @@ public class ServicioCrearCliente {
 		this.repositorioCliente = repositorioCliente;
 	}
 	
-	
 	public void crear(Cliente cliente) {
 		validarExistenciaPrevia(cliente.getCedula());
 		this.repositorioCliente.crear(cliente);
 	}
-	
 	
 	public void validarExistenciaPrevia(String cedula) {
 		boolean existe= this.repositorioCliente.existe(cedula);

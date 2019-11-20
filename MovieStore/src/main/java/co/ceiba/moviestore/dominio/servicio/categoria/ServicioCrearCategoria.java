@@ -1,7 +1,6 @@
 package co.ceiba.moviestore.dominio.servicio.categoria;
 
 import org.springframework.stereotype.Component;
-
 import co.ceiba.moviestore.dominio.excepcion.ExcepcionDuplicidad;
 import co.ceiba.moviestore.dominio.modelo.Categoria;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCategoria;

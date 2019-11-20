@@ -1,5 +1,6 @@
 package co.ceiba.moviestore.infraestructura.adaptador.repositorio;
 
+import java.util.ArrayList;
 import java.util.List;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -57,4 +58,15 @@ public class RepositorioClienteJpa  implements RepositorioCliente{
 		repositorioJpa.save(clienteEnti);
 	}
 
+	@Override
+	public List<ComandoCliente> listar() {
+		List<ClienteEntidad> listaCliente = repositorioJpa.findAll();
+		List<ComandoCliente> result= new ArrayList<>();
+		for(int i=0; i < listaCliente.size(); i++) {
+			result.add(modelMapper.map(listaCliente.get(i), ComandoCliente.class));			
+		}
+		return result;
+	}
+	
+	
 }

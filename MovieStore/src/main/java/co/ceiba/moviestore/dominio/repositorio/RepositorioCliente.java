@@ -1,5 +1,7 @@
 package co.ceiba.moviestore.dominio.repositorio;
 
+import java.util.List;
+
 import co.ceiba.moviestore.aplicacion.comando.ComandoCliente;
 import co.ceiba.moviestore.dominio.modelo.Cliente;
 
@@ -36,4 +38,10 @@ public interface RepositorioCliente {
 	 * @param cliente cliente 
 	 */
 	void actualizar(Cliente cliente);
+	
+	/**
+	 * Permite listar todos los clientes
+	 * @return clientes
+	 */
+	List<ComandoCliente> listar();
 }
