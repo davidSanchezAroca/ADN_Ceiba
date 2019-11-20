@@ -4,14 +4,14 @@ public class Tarjeta {
 
 	private String franquicia;
 	
-	private String numero;
+	private String numeroCuenta;
 	
-	private String cedula;
+	private Cliente cliente;
 
-	public Tarjeta(String franquicia, String numero, String cedula) {
+	public Tarjeta(String franquicia, String numeroCuenta, Cliente cliente) {
 		this.franquicia = franquicia;
-		this.numero = numero;
-		this.cedula = cedula;
+		this.numeroCuenta = numeroCuenta;
+		this.cliente = cliente;
 	}
 
 	/**
@@ -28,34 +28,35 @@ public class Tarjeta {
 		this.franquicia = franquicia;
 	}
 
-	/**
-	 * @return Metodo que obtiene el valor de la variable numero
-	 */
-	public String getNumero() {
-		return numero;
-	}
-
-	/**
-	 * @param numero Variable que modifica a  numero 
-	 */
-	public void setNumero(String numero) {
-		this.numero = numero;
-	}
-
-	/**
-	 * @return Metodo que obtiene el valor de la variable cedula
-	 */
-	public String getCedula() {
-		return cedula;
-	}
-
-	/**
-	 * @param cedula Variable que modifica a  cedula 
-	 */
-	public void setCedula(String cedula) {
-		this.cedula = cedula;
-	}
 	
+
+	/**
+	 * @return Metodo que obtiene el valor de la variable numeroCuenta
+	 */
+	public String getNumeroCuenta() {
+		return numeroCuenta;
+	}
+
+	/**
+	 * @param numeroCuenta variable que modifica el valor  numeroCuenta 
+	 */
+	public void setNumeroCuenta(String numeroCuenta) {
+		this.numeroCuenta = numeroCuenta;
+	}
+
+	/**
+	 * @return Metodo que obtiene el valor de la variable cliente
+	 */
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	/**
+	 * @param cliente variable que modifica el valor  cliente 
+	 */
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
 	
 	
 	

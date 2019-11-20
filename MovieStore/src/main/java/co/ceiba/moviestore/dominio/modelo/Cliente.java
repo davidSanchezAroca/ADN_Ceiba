@@ -28,6 +28,14 @@ public class Cliente {
 		this.apellido = apellido;
 		this.fechaNacimiento = fechaNacimiento;
 	}
+	
+	
+
+	public Cliente() {
+		super();
+	}
+
+
 
 	/**
 	 * @return Metodo que obtiene el valor de la variable cedula

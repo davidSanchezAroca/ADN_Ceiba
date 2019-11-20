@@ -1,8 +1,45 @@
 package co.ceiba.moviestore.dominio.repositorio;
 
+import java.util.List;
+
+import co.ceiba.moviestore.aplicacion.comando.ComandoTarjeta;
 import co.ceiba.moviestore.dominio.modelo.Tarjeta;
 
 public interface RepositorioTarjeta {
 
-	void crearTarjeta(Tarjeta tarjeta);
+	/**
+	 * Permite crear una terjeta en el sistema 
+	 * @param tarjeta
+	 */
+	void crear(Tarjeta tarjeta);
+	
+	/**
+	 * Permite validar la exitencia de una tarjeta
+	 */
+	boolean existe(String numero);
+	
+	/**
+	 * Permite eliminar una tarjeta del sistema 
+	 * @param numero numero de la tarjeta 
+	 */
+	void eliminar(Tarjeta tarjeta);
+	
+	/**
+	 * Permite realizar la busqueda de una tarjeta por numero
+	 * @param numero
+	 * @return
+	 */
+	ComandoTarjeta buscar(String numero);
+	/**
+	 * Permite listar las tarejtas guardadas
+	 * @param numero
+	 * @return
+	 */
+	List<ComandoTarjeta> listar(String cedula);
+	
+	/**
+	 * Permite realizar la actualizacion de una tarjeta 
+	 * @param tarjeta tarjeta 
+	 */
+	void actualizar(Tarjeta tarjeta);
 }

@@ -34,7 +34,7 @@ public class InformacionSesionEntidad implements Serializable{
 	private String password;
 	
 	@OneToOne
-	@JoinColumn(name="cedula",insertable = false,updatable = false)
+	@JoinColumn(name="cedula",nullable =  false)
 	private ClienteEntidad cliente;
 
 	public InformacionSesionEntidad() {
