@@ -3,12 +3,17 @@ package co.ceiba.moviestore.infraestructura.adaptador.servicio;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCategoria;
+import co.ceiba.moviestore.dominio.repositorio.RepositorioCategoriaPelicula;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCliente;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioOrden;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioPelicula;
+import co.ceiba.moviestore.dominio.repositorio.RepositorioPeliculaOrden;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioSesion;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioTarjeta;
 import co.ceiba.moviestore.dominio.servicio.categoria.ServicioConsultarCategorias;
+import co.ceiba.moviestore.dominio.servicio.categoria.pelicula.ServicioAsociarCategoriaPelicula;
+import co.ceiba.moviestore.dominio.servicio.categoria.pelicula.ServicioEliminarCategoriaPelicula;
+import co.ceiba.moviestore.dominio.servicio.categoria.pelicula.ServicioListarCategoriaPelicula;
 import co.ceiba.moviestore.dominio.servicio.cliente.ServicioCrearCliente;
 import co.ceiba.moviestore.dominio.servicio.orden.ServicioActualizarOrden;
 import co.ceiba.moviestore.dominio.servicio.orden.ServicioBuscarOrden;
@@ -18,6 +23,7 @@ import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioActualizarPelicula;
 import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioCrearPelicula;
 import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioEliminarPelicula;
 import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioListarPelicula;
+import co.ceiba.moviestore.dominio.servicio.pelicula.orden.ServicioCrearPeliculaOrden;
 import co.ceiba.moviestore.dominio.servicio.sesion.ServicioActualizarSesion;
 import co.ceiba.moviestore.dominio.servicio.sesion.ServicioCrearSesion;
 import co.ceiba.moviestore.dominio.servicio.tarjeta.ServicioBuscarTarjeta;
@@ -121,4 +127,38 @@ public class BeanServicio {
 	public ServicioBuscarOrden servicioBuscarOrden(RepositorioOrden repositorioOrden) {
 		return new ServicioBuscarOrden(repositorioOrden);
 	}
+	
+	/********************************************************
+	 *  Servicios categoria pelicula
+	 ********************************************************/
+	@Bean
+	public ServicioAsociarCategoriaPelicula servicioAsociarCategoriaPelicula(RepositorioCategoriaPelicula repositorioCategoriaPelicula,
+			RepositorioCategoria repositorioCategoria,
+			RepositorioPelicula repositorioPelicula) {
+		return new ServicioAsociarCategoriaPelicula(repositorioCategoriaPelicula,repositorioCategoria,repositorioPelicula);
+	}
+	
+	
+	@Bean
+	public ServicioEliminarCategoriaPelicula servicioEliminarCategoriaPelicula(RepositorioCategoriaPelicula repositorioCategoriaPelicula,
+			RepositorioPelicula repositorioPelicula,
+			RepositorioCategoria repositorioCategoria) {
+		return new ServicioEliminarCategoriaPelicula(repositorioCategoriaPelicula,repositorioPelicula,repositorioCategoria);
+	}
+	
+	@Bean
+	public ServicioListarCategoriaPelicula servicioListarCategoriaPelicula(RepositorioCategoriaPelicula repositorioCategoriaPelicula) {
+		return new ServicioListarCategoriaPelicula(repositorioCategoriaPelicula);
+	}
+	
+	/**********************************************************
+	 *  Servicio pelicula orden
+	 **********************************************************/
+	
+	@Bean
+	public ServicioCrearPeliculaOrden servicioCrearPeliculaOrden(RepositorioPeliculaOrden repositorioPeliculaOrden,
+			RepositorioPelicula repositorioPelicula, RepositorioOrden repositorioOrden) {
+		return new ServicioCrearPeliculaOrden(repositorioPeliculaOrden, repositorioPelicula, repositorioOrden);
+	}
+	
 }

@@ -1,6 +1,7 @@
 package co.ceiba.moviestore.dominio.servicio.orden;
 
 import co.ceiba.moviestore.aplicacion.comando.ComandoOrden;
+import co.ceiba.moviestore.dominio.modelo.Orden;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioOrden;
 
 public class ServicioBuscarOrden {
@@ -12,8 +13,8 @@ public class ServicioBuscarOrden {
 	}
 	
 	
-	public ComandoOrden buscar(int numero) {
-		return repositorioOrden.buscar(numero);
+	public ComandoOrden buscar(Orden orden) {
+		return repositorioOrden.buscarCliente(orden);
 	}
 	
 	

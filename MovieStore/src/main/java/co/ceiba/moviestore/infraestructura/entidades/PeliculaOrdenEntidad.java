@@ -1,8 +1,6 @@
 package co.ceiba.moviestore.infraestructura.entidades;
 
 import java.io.Serializable;
-
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -35,8 +33,6 @@ public class PeliculaOrdenEntidad implements Serializable {
 	@JoinColumn(name = "numeroOrden", insertable = false, updatable = false)
 	private OrdenEntidad numeroOrden;
 	
-	@Column(name = "cantidad")
-	private Integer cantidad;
 
 	public PeliculaOrdenEntidad() {
 		super();
@@ -83,24 +79,5 @@ public class PeliculaOrdenEntidad implements Serializable {
 	public void setNumeroOrden(OrdenEntidad numeroOrden) {
 		this.numeroOrden = numeroOrden;
 	}
-
-	/**
-	 * @return Metodo que obtiene el valor de la variable cantidad
-	 */
-	public Integer getCantidad() {
-		return cantidad;
-	}
-
-	/**
-	 * @param cantidad Variable que modifica a  cantidad 
-	 */
-	public void setCantidad(Integer cantidad) {
-		this.cantidad = cantidad;
-	}
-	
-	
-	
-	
-	
-	
+		
 }

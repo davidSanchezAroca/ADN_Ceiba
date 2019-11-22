@@ -11,6 +11,8 @@ public class Categoria {
 	 */
 	private static final String EL_NOMBRE_ES_UN_DATO_OBLIGATORIO = "El nombre es un dato obligatorio.";
 	
+	private int idCategoria;
+	
 	private String nombre;
 
 	
@@ -18,10 +20,32 @@ public class Categoria {
 	 * Constructor de la clase categoria
 	 * @param nombre
 	 */
-	public Categoria( String nombre) {
+	public Categoria(int idCategoria, String nombre) {
 		ValidadorArgumento.validarObligatorio(nombre, EL_NOMBRE_ES_UN_DATO_OBLIGATORIO);		
 		this.nombre = nombre;
+		this.idCategoria=idCategoria;
 	}
+	
+	public Categoria() {}
+
+	
+
+	/**
+	 * @return Metodo que obtiene el valor de la variable idCategoria
+	 */
+	public int getIdCategoria() {
+		return idCategoria;
+	}
+
+
+
+	/**
+	 * @param idCategoria variable que modifica el valor  idCategoria 
+	 */
+	public void setIdCategoria(int idCategoria) {
+		this.idCategoria = idCategoria;
+	}
+
 
 
 	/**

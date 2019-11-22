@@ -15,9 +15,10 @@ import co.ceiba.moviestore.infraestructura.repositoriojpa.OrdenRepositorio;
 @Repository
 public class RepositorioOrdenJpa implements RepositorioOrden{
 
+	@Autowired
 	private final OrdenRepositorio repositorioJpa;
 	
-	@Autowired
+	
 	private ModelMapper modelMapper = new ModelMapper();
 	
 	public RepositorioOrdenJpa(OrdenRepositorio repositorioJpa) {
@@ -37,9 +38,9 @@ public class RepositorioOrdenJpa implements RepositorioOrden{
 	}
 
 	@Override
-	public List<ComandoOrden> listar() {
-		List<ComandoOrden> lista= new ArrayList<ComandoOrden>();
-		List<OrdenEntidad> listaOrden= repositorioJpa.findAll();
+	public List<ComandoOrden> listar(String cedula) {
+		List<ComandoOrden> lista= new ArrayList<>();
+		List<OrdenEntidad> listaOrden= repositorioJpa.findAllCedula(cedula);
 		for(int i =0 ; i < listaOrden.size(); i++) {
 			lista.add(modelMapper.map(listaOrden.get(0),ComandoOrden.class));
 		}
@@ -47,12 +48,23 @@ public class RepositorioOrdenJpa implements RepositorioOrden{
 	}
 
 	@Override
-	public ComandoOrden buscar(int numero) {
-		List<OrdenEntidad> list=repositorioJpa.findByNumeroOrden(numero);
+	public ComandoOrden buscarCliente(Orden orden) {
+		List<OrdenEntidad> list=repositorioJpa.findByNumeroOrden(orden.getNumeroOrden(),orden.getCliente().getCedula());
 		if(list.size() > 0) {
 			return modelMapper.map(list.get(0),ComandoOrden.class);
 		}
 		return null;
 	}
+
+	@Override
+	public ComandoOrden buscar(int numero) {
+		List<OrdenEntidad> ordenEntidad=repositorioJpa.findByNumero(numero);
+		if(ordenEntidad.size() > 0) {
+			return modelMapper.map(ordenEntidad.get(0),ComandoOrden.class);
+		}
+		return null;
+	}
+	
+	
 
 }

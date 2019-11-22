@@ -16,8 +16,8 @@ public class ManejadorListarOrden {
 		this.servicioListarOrden = servicioListarOrden;
 	}
 	
-	public List<ComandoOrden> listar(){
-		return this.servicioListarOrden.listar();
+	public List<ComandoOrden> listar(String cedula){
+		return this.servicioListarOrden.listar(cedula);
 	}
 	
 }

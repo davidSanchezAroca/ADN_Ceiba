@@ -6,8 +6,10 @@ public class CategoriaTestDataBuilder {
 	
 	private String nombre;
 	
+	private int idCategoria;
+	
 	public CategoriaTestDataBuilder() {
-
+		this.idCategoria=1;
 		this.nombre="terror";
 	}
 
@@ -27,7 +29,7 @@ public class CategoriaTestDataBuilder {
 	}
 	
 	public Categoria build() {
-		return new Categoria(nombre);
+		return new Categoria(idCategoria,nombre);
 	}
 	
 	

@@ -13,14 +13,14 @@ public class ServicioActualizarOrden {
 	}
 	
 	public void actualizar(Orden orden) {
-		ComandoOrden comando= buscar(orden.getNumeroOrden());
+		ComandoOrden comando= buscar(orden);
 		if(comando != null) {
 		  orden.setNumeroOrden(comando.getNumeroOrden());
 		  repositorioOrden.actualizar(orden);
 		}
 	}
 	
-	public ComandoOrden buscar(int numero) {
-		return repositorioOrden.buscar(numero);
+	public ComandoOrden buscar(Orden orden) {
+		return repositorioOrden.buscarCliente(orden);
 	}
 }

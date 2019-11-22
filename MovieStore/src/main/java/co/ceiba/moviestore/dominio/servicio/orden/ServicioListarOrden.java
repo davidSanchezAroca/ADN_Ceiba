@@ -13,8 +13,8 @@ public class ServicioListarOrden {
 		this.repositorioOrden = repositorioOrden;
 	}
 	
-	public List<ComandoOrden> listar(){
-		return repositorioOrden.listar();
+	public List<ComandoOrden> listar(String cedula){
+		return repositorioOrden.listar(cedula);
 	}
 	
 }

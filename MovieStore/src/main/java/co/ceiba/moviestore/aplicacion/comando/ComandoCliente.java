@@ -2,12 +2,7 @@ package co.ceiba.moviestore.aplicacion.comando;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
-@JsonIgnoreProperties({ "hibernateLazyInitializer", "handler" })
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "cedula")
 public class ComandoCliente {
 
 	private String cedula;
@@ -26,9 +21,7 @@ public class ComandoCliente {
 	}
 
 	
-	public ComandoCliente() {
-		super();
-	}
+	public ComandoCliente() {}
 
 
 	/**

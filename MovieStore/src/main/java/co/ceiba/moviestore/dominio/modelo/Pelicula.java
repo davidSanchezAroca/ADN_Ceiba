@@ -13,8 +13,9 @@ public class Pelicula {
 		this.valor = valor;
 		this.idProducto = idProducto;
 	}
-
 	
+	public Pelicula() {}
+
 	/**
 	 * @return Metodo que obtiene el valor de la variable idProducto
 	 */

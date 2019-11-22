@@ -11,7 +11,9 @@ public interface RepositorioOrden {
 	
 	void actualizar(Orden orden);
 	
-	List<ComandoOrden>  listar();
+	List<ComandoOrden>  listar(String cedula);
+	
+	ComandoOrden buscarCliente(Orden orden);
 	
 	ComandoOrden buscar(int numero);
 }

@@ -52,8 +52,8 @@ public class RepositorioPeliculaJpa implements RepositorioPelicula {
 
 	@Override
 	public void actualizar(Pelicula pelicula) {
-		PeliculaEntidad peliculaEntidad= modelMapper.map(pelicula, PeliculaEntidad.class);
-		repositorioJpa.save(peliculaEntidad);
+		PeliculaEntidad peliculaEnti= modelMapper.map(pelicula, PeliculaEntidad.class);
+		repositorioJpa.save(peliculaEnti);
 	}
 
 	@Override

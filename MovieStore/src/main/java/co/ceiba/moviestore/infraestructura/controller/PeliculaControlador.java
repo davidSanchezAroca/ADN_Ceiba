@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-
 import co.ceiba.moviestore.aplicacion.comando.ComandoPelicula;
-import co.ceiba.moviestore.aplicacion.comando.manejador.cliente.ManejadorActualizarCliente;
 import co.ceiba.moviestore.dominio.comando.manejador.pelicula.ManejadorActualizarPelicula;
 import co.ceiba.moviestore.dominio.comando.manejador.pelicula.ManejadorCrearPelicula;
 import co.ceiba.moviestore.dominio.comando.manejador.pelicula.ManejadorEliminarPelicula;

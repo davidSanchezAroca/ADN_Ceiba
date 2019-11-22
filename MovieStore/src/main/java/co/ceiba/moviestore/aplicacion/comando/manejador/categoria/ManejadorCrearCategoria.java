@@ -22,7 +22,7 @@ public class ManejadorCrearCategoria {
 
 
 	public void crear(ComandoCategoria comandoCategoria) {
-		Categoria categoria=this.fabricaCategoria.crearCategoria(comandoCategoria);
+		Categoria categoria=this.fabricaCategoria.crear(comandoCategoria);
 		this.servicioCrearCategoria.crear(categoria);
 	}
 }

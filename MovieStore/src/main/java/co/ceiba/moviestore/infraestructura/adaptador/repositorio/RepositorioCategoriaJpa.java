@@ -9,9 +9,11 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import co.ceiba.moviestore.aplicacion.comando.ComandoCategoria;
+import co.ceiba.moviestore.aplicacion.comando.ComandoPelicula;
 import co.ceiba.moviestore.dominio.modelo.Categoria;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCategoria;
 import co.ceiba.moviestore.infraestructura.entidades.CategoriaEntidad;
+import co.ceiba.moviestore.infraestructura.entidades.PeliculaEntidad;
 import co.ceiba.moviestore.infraestructura.repositoriojpa.CategoriaRepositorio;
 
 @Repository
@@ -54,6 +56,15 @@ public class RepositorioCategoriaJpa implements RepositorioCategoria {
 			listaCategorias.add(modelMapper.map(listacategoriaEntidad.get(i),ComandoCategoria.class));
 		}
 		return listaCategorias;
+	}
+
+	@Override
+	public ComandoCategoria buscar(String nombre) {
+		List<CategoriaEntidad> categoriaEntidad=repositorioJpa.findByNombre(nombre);
+		if(categoriaEntidad.size() > 0) {
+			return  modelMapper.map(categoriaEntidad.get(0),ComandoCategoria.class);
+		}
+		return null;
 	}
 
 

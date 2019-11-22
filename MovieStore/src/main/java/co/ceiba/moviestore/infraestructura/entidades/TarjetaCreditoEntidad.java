@@ -8,10 +8,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 
-import org.springframework.data.jpa.repository.Query;
 
 /**
  * Clase que representa la entidad tarjeta de credito
