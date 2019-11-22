@@ -9,7 +9,7 @@ import co.ceiba.moviestore.dominio.modelo.Pelicula;
 public class FabricaPelicula {
 	
 	public Pelicula crear(ComandoPelicula comandoPelicula) {
-		return new Pelicula(comandoPelicula.getNombre(), comandoPelicula.getValor());
+		return new Pelicula(comandoPelicula.getIdProducto(),comandoPelicula.getNombre(), comandoPelicula.getValor());
 	}
 
 }

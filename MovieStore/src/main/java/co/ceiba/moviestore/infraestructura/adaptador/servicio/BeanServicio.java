@@ -4,12 +4,20 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCategoria;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCliente;
+import co.ceiba.moviestore.dominio.repositorio.RepositorioOrden;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioPelicula;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioSesion;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioTarjeta;
 import co.ceiba.moviestore.dominio.servicio.categoria.ServicioConsultarCategorias;
 import co.ceiba.moviestore.dominio.servicio.cliente.ServicioCrearCliente;
+import co.ceiba.moviestore.dominio.servicio.orden.ServicioActualizarOrden;
+import co.ceiba.moviestore.dominio.servicio.orden.ServicioBuscarOrden;
+import co.ceiba.moviestore.dominio.servicio.orden.ServicioCrearOrden;
+import co.ceiba.moviestore.dominio.servicio.orden.ServicioListarOrden;
+import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioActualizarPelicula;
 import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioCrearPelicula;
+import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioEliminarPelicula;
+import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioListarPelicula;
 import co.ceiba.moviestore.dominio.servicio.sesion.ServicioActualizarSesion;
 import co.ceiba.moviestore.dominio.servicio.sesion.ServicioCrearSesion;
 import co.ceiba.moviestore.dominio.servicio.tarjeta.ServicioBuscarTarjeta;
@@ -74,5 +82,43 @@ public class BeanServicio {
 	@Bean
 	public ServicioCrearPelicula servicioCrearPelicula(RepositorioPelicula repositorioPelicula) {
 		return new ServicioCrearPelicula(repositorioPelicula);
+	}
+	
+	@Bean
+	public ServicioEliminarPelicula servicioEliminarPelicula(RepositorioPelicula repositorioPelicula) {
+		return new ServicioEliminarPelicula(repositorioPelicula);
+	}
+	
+	@Bean
+	public ServicioListarPelicula servicioListarPelicula(RepositorioPelicula repositorioPelicula) {
+		return new ServicioListarPelicula(repositorioPelicula);
+	}
+	
+	@Bean
+	public ServicioActualizarPelicula servicioActualizarPelicula(RepositorioPelicula repositorioPelicula) {
+		return new ServicioActualizarPelicula(repositorioPelicula);
+	}
+	
+	/*******************************************************
+	 *  Servicio orden
+	 *******************************************************/
+	@Bean
+	public ServicioCrearOrden servicioCrearOrden(RepositorioOrden repositorioOrden) {
+		return new ServicioCrearOrden(repositorioOrden);
+	}
+	
+	@Bean
+	public ServicioActualizarOrden servicioActualizarOrden(RepositorioOrden repositorioOrden) {
+		return new ServicioActualizarOrden(repositorioOrden);
+	}
+	
+	@Bean
+	public ServicioListarOrden servicioListarOrden(RepositorioOrden repositorioOrden) {
+		return new ServicioListarOrden(repositorioOrden);
+	}
+	
+	@Bean
+	public ServicioBuscarOrden servicioBuscarOrden(RepositorioOrden repositorioOrden) {
+		return new ServicioBuscarOrden(repositorioOrden);
 	}
 }
