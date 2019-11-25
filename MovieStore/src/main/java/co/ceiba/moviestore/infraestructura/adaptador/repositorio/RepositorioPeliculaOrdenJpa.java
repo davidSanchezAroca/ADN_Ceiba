@@ -7,9 +7,7 @@ import javax.transaction.Transactional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
-
 import co.ceiba.moviestore.aplicacion.comando.ComandoPeliculaOrden;
-import co.ceiba.moviestore.dominio.modelo.PeliculaOrden;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioPeliculaOrden;
 import co.ceiba.moviestore.infraestructura.repositoriojpa.PeliculaOrdenRepositorio;
 

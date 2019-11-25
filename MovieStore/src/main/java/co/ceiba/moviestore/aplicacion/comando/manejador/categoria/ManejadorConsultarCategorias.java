@@ -13,8 +13,8 @@ public class ManejadorConsultarCategorias {
 		this.servicioConsultaCategorias = servicioCrearCategoria;
 	}
 	
-
 	public List<ComandoCategoria> listar(){
 		return this.servicioConsultaCategorias.listar();
 	}
+	
 }

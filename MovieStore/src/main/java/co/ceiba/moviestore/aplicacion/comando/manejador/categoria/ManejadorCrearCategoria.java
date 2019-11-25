@@ -25,4 +25,5 @@ public class ManejadorCrearCategoria {
 		Categoria categoria=this.fabricaCategoria.crear(comandoCategoria);
 		this.servicioCrearCategoria.crear(categoria);
 	}
+	
 }

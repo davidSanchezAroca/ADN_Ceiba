@@ -3,7 +3,6 @@ package co.ceiba.moviestore.dominio.repositorio;
 import java.util.List;
 
 import co.ceiba.moviestore.aplicacion.comando.ComandoPeliculaOrden;
-import co.ceiba.moviestore.dominio.modelo.PeliculaOrden;
 
 public interface RepositorioPeliculaOrden {
 

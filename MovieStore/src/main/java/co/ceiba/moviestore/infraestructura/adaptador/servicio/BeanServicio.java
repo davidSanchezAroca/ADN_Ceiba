@@ -42,12 +42,10 @@ public class BeanServicio {
 	public ServicioEliminarCategoria servicioEliminarCategoria(RepositorioCategoria repositorioCategoria) {
 		return new ServicioEliminarCategoria(repositorioCategoria);
 	}
-	
 	@Bean
-	public ServicioConsultarCategorias ServicioConsultarCategorias(RepositorioCategoria repositorioCategoria) {
+	public ServicioConsultarCategorias servicioConsultarCategorias(RepositorioCategoria repositorioCategoria) {
 		return new ServicioConsultarCategorias(repositorioCategoria);
 	}
-	
 	@Bean
 	public ServicioCrearCategoria servicioCrearCategoria(RepositorioCategoria repositorioCategoria) {
 		return new ServicioCrearCategoria(repositorioCategoria);

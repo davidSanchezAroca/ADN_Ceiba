@@ -1,9 +1,8 @@
 package co.ceiba.moviestore.dominio.servicio.categoria;
-
-
 import java.util.List;
 import co.ceiba.moviestore.aplicacion.comando.ComandoCategoria;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCategoria;
+
 
 public class ServicioConsultarCategorias {
 	

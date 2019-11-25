@@ -11,9 +11,7 @@ public class ComandoCategoria {
 		this.idCategoria=idCategoria;
 	}
 
-	public ComandoCategoria() {
-		super();
-	}
+	public ComandoCategoria() {}
 	
 
 	/**
