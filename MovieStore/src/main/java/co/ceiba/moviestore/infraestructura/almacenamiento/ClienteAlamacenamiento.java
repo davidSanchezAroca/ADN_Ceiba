@@ -2,12 +2,10 @@ package co.ceiba.moviestore.infraestructura.almacenamiento;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import org.springframework.stereotype.Repository;
-
+import org.springframework.stereotype.Component;
 import co.ceiba.moviestore.infraestructura.entidades.ClienteEntidad;
 
-@Repository
+@Component
 public class ClienteAlamacenamiento {
 
 	

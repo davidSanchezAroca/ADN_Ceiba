@@ -17,17 +17,17 @@ import co.ceiba.moviestore.infraestructura.repositoriojpa.ClienteRepositorio;
 @Repository
 public class RepositorioClienteJpa  implements RepositorioCliente{
 
-	@Autowired
-	private final ClienteRepositorio repositorioJpa2;
+	//@Autowired
+	//private final ClienteRepositorio repositorioJpa2;
 	
-	@Autowired
+
 	private final ClienteAlamacenamiento repositorioJpa;
 	
 	private ModelMapper modelMapper = new ModelMapper();
 	
 
 	public RepositorioClienteJpa(ClienteRepositorio repositorioJpa2, ClienteAlamacenamiento repositorioJpa) {
-		this.repositorioJpa2 = repositorioJpa2;
+		//this.repositorioJpa2 = repositorioJpa2;
 		this.repositorioJpa=repositorioJpa;
 	}
 	
