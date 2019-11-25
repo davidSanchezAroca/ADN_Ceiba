@@ -24,6 +24,8 @@ public class Orden {
 		this.valor = valor;
 		this.cliente = cliente;
 	}
+	
+	public Orden() {}
 
 	/**
 	 * @return Metodo que obtiene el valor de la variable numeroOrden

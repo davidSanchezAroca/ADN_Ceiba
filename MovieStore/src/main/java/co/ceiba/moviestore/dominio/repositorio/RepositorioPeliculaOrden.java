@@ -9,7 +9,7 @@ public interface RepositorioPeliculaOrden {
 
 	void crear(int idPelicula, int idOrden);
 	
-	void actualizar(PeliculaOrden comandoPeliculaOrden);
+	void actualizar(int idPelicula, int idOrden);
 	
 	List<ComandoPeliculaOrden> comandoPeliculaOrden();
 	

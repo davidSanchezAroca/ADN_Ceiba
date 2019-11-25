@@ -7,7 +7,6 @@ import co.ceiba.moviestore.MovieStoreApplicationTests;
 import co.ceiba.moviestore.dominio.excepcion.ExcepcionDuplicidad;
 import co.ceiba.moviestore.dominio.modelo.Categoria;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCategoria;
-import co.ceiba.moviestore.dominio.servicio.categoria.ServicioConsultarCategorias;
 import co.ceiba.moviestore.dominio.servicio.categoria.ServicioCrearCategoria;
 import co.ceiba.moviestore.dominio.testdatabuilder.CategoriaTestDataBuilder;
 
@@ -15,7 +14,7 @@ public class ServicioCrearCategoriaTest {
 
 	@Test
 	public void validarExistenciaPrevia() {
-		Categoria cat= new CategoriaTestDataBuilder().build();
+	    Categoria cat = new CategoriaTestDataBuilder().build();
 		RepositorioCategoria repoCat= Mockito.mock(RepositorioCategoria.class);
 		Mockito.when(repoCat.existe(Mockito.any())).thenReturn(true);
 		

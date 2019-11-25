@@ -1,5 +1,4 @@
 package co.ceiba.moviestore.dominio.testdatabuilder;
-
 import co.ceiba.moviestore.dominio.modelo.Categoria;
 
 public class CategoriaTestDataBuilder {

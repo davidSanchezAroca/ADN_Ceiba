@@ -11,6 +11,8 @@ import co.ceiba.moviestore.dominio.repositorio.RepositorioPeliculaOrden;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioSesion;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioTarjeta;
 import co.ceiba.moviestore.dominio.servicio.categoria.ServicioConsultarCategorias;
+import co.ceiba.moviestore.dominio.servicio.categoria.ServicioCrearCategoria;
+import co.ceiba.moviestore.dominio.servicio.categoria.ServicioEliminarCategoria;
 import co.ceiba.moviestore.dominio.servicio.categoria.pelicula.ServicioAsociarCategoriaPelicula;
 import co.ceiba.moviestore.dominio.servicio.categoria.pelicula.ServicioEliminarCategoriaPelicula;
 import co.ceiba.moviestore.dominio.servicio.categoria.pelicula.ServicioListarCategoriaPelicula;
@@ -23,6 +25,7 @@ import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioActualizarPelicula;
 import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioCrearPelicula;
 import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioEliminarPelicula;
 import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioListarPelicula;
+import co.ceiba.moviestore.dominio.servicio.pelicula.orden.ServicioActualizarPeliculaOrden;
 import co.ceiba.moviestore.dominio.servicio.pelicula.orden.ServicioCrearPeliculaOrden;
 import co.ceiba.moviestore.dominio.servicio.sesion.ServicioActualizarSesion;
 import co.ceiba.moviestore.dominio.servicio.sesion.ServicioCrearSesion;
@@ -35,14 +38,25 @@ import co.ceiba.moviestore.dominio.servicio.tarjeta.ServicioListarTarjeta;
 @Configuration
 public class BeanServicio {
 	
+	@Bean
+	public ServicioEliminarCategoria servicioEliminarCategoria(RepositorioCategoria repositorioCategoria) {
+		return new ServicioEliminarCategoria(repositorioCategoria);
+	}
+	
+	@Bean
+	public ServicioConsultarCategorias ServicioConsultarCategorias(RepositorioCategoria repositorioCategoria) {
+		return new ServicioConsultarCategorias(repositorioCategoria);
+	}
+	
+	@Bean
+	public ServicioCrearCategoria servicioCrearCategoria(RepositorioCategoria repositorioCategoria) {
+		return new ServicioCrearCategoria(repositorioCategoria);
+	}
 	
 	/*********************************************
 	 * Servicios cliente
 	 *********************************************/
 	
-	public ServicioConsultarCategorias servicioCrearCategoria(RepositorioCategoria repositorioCategoria) {
-		return new ServicioConsultarCategorias(repositorioCategoria);
-	}
 	
 	public ServicioCrearCliente servicioCrearCliente(RepositorioCliente repositorioCliente) {
 		return new ServicioCrearCliente(repositorioCliente);
@@ -159,6 +173,12 @@ public class BeanServicio {
 	public ServicioCrearPeliculaOrden servicioCrearPeliculaOrden(RepositorioPeliculaOrden repositorioPeliculaOrden,
 			RepositorioPelicula repositorioPelicula, RepositorioOrden repositorioOrden) {
 		return new ServicioCrearPeliculaOrden(repositorioPeliculaOrden, repositorioPelicula, repositorioOrden);
+	}
+	
+	@Bean
+	public ServicioActualizarPeliculaOrden servicioActualizarPeliculaOrden(RepositorioPeliculaOrden repositorioPeliculaOrden,
+			RepositorioPelicula repositorioPelicula, RepositorioOrden repositorioOrden) {
+		return new ServicioActualizarPeliculaOrden(repositorioPeliculaOrden, repositorioPelicula, repositorioOrden);
 	}
 	
 }

@@ -2,18 +2,14 @@ package co.ceiba.moviestore.infraestructura.adaptador.repositorio;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
-
 import co.ceiba.moviestore.aplicacion.comando.ComandoCategoria;
-import co.ceiba.moviestore.aplicacion.comando.ComandoPelicula;
 import co.ceiba.moviestore.dominio.modelo.Categoria;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCategoria;
 import co.ceiba.moviestore.infraestructura.entidades.CategoriaEntidad;
-import co.ceiba.moviestore.infraestructura.entidades.PeliculaEntidad;
 import co.ceiba.moviestore.infraestructura.repositoriojpa.CategoriaRepositorio;
 
 @Repository
