@@ -1,5 +1,7 @@
 package co.ceiba.moviestore.dominio.modelo;
 
+import co.ceiba.moviestore.dominio.utils.ValidadorArgumento;
+
 /**
  * Clase de dominio que representa categoria 
  * @author david.sanchez

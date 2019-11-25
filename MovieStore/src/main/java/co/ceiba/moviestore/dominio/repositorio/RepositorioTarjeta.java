@@ -16,7 +16,7 @@ public interface RepositorioTarjeta {
 	/**
 	 * Permite validar la exitencia de una tarjeta
 	 */
-	boolean existe(String numero);
+	boolean existe(Tarjeta tarjeta);
 	
 	/**
 	 * Permite eliminar una tarjeta del sistema 
@@ -29,7 +29,7 @@ public interface RepositorioTarjeta {
 	 * @param numero
 	 * @return
 	 */
-	ComandoTarjeta buscar(String numero);
+	ComandoTarjeta buscar(Tarjeta tarjeta);
 	/**
 	 * Permite listar las tarejtas guardadas
 	 * @param numero

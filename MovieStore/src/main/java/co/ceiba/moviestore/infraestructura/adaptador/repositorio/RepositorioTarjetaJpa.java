@@ -34,9 +34,9 @@ public class RepositorioTarjetaJpa implements RepositorioTarjeta {
 	}
 
 	@Override
-	public boolean existe(String numero) {
+	public boolean existe(Tarjeta tarjeta) {
 		List<TarjetaCreditoEntidad> tarjAux;
-		tarjAux= repositorioJpa.findByCedula(numero);
+		tarjAux= repositorioJpa.findByNumeroCuenta(tarjeta.getNumeroCuenta(),tarjeta.getCliente().getCedula());
 		return !tarjAux.isEmpty();
 	}
 
@@ -47,9 +47,9 @@ public class RepositorioTarjetaJpa implements RepositorioTarjeta {
 	}
 
 	@Override
-	public ComandoTarjeta buscar(String numero) {
+	public ComandoTarjeta buscar(Tarjeta tarjeta) {
 		List<TarjetaCreditoEntidad> listTarjeta;
-		listTarjeta= repositorioJpa.findByNumeroCuenta(numero);
+		listTarjeta= repositorioJpa.findByNumeroCuenta(tarjeta.getNumeroCuenta(),tarjeta.getCliente().getCedula());
 		return listTarjeta.size() == 1 ? modelMapper.map(listTarjeta.get(0),ComandoTarjeta.class) : null;
 	}
 

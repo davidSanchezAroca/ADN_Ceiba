@@ -20,5 +20,6 @@ public interface TarjetaRepositorio extends JpaRepository<TarjetaCreditoEntidad,
 	@Query(value="Delete from tarjeta_credito_entidad t where t.numero_cuenta= ?1 and t.cedula= ?2",nativeQuery = true)
 	void deleteByNumeroCuenta( String numero, String cedula);
 	
-	List<TarjetaCreditoEntidad> findByNumeroCuenta(String numero);
+	@Query(value= "Select u from TarjetaCreditoEntidad u where u.cliente.cedula=:cedula and u.numeroCuenta=:numero" )
+	List<TarjetaCreditoEntidad> findByNumeroCuenta(@Param("numero")String numero,@Param("cedula")String cedula);
 }

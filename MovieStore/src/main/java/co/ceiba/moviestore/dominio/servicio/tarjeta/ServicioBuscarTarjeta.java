@@ -2,6 +2,7 @@ package co.ceiba.moviestore.dominio.servicio.tarjeta;
 
 import co.ceiba.moviestore.aplicacion.comando.ComandoTarjeta;
 import co.ceiba.moviestore.dominio.excepcion.ExcepcionGenerica;
+import co.ceiba.moviestore.dominio.modelo.Tarjeta;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioTarjeta;
 
 public class ServicioBuscarTarjeta {
@@ -14,8 +15,8 @@ public class ServicioBuscarTarjeta {
 		this.repositorioTarjeta = repositorioTarjeta;
 	}
 	
-	public ComandoTarjeta buscar(String numero) {
-		ComandoTarjeta comandoTarjeta= repositorioTarjeta.buscar(numero);
+	public ComandoTarjeta buscar(Tarjeta tarjeta) {
+		ComandoTarjeta comandoTarjeta= repositorioTarjeta.buscar(tarjeta);
 		validarExistencia(comandoTarjeta);
 		return comandoTarjeta;
 	}

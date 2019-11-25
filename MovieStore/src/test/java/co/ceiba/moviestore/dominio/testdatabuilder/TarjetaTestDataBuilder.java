@@ -1,27 +1,21 @@
-package co.ceiba.moviestore.dominio.modelo;
+package co.ceiba.moviestore.dominio.testdatabuilder;
 
-import co.ceiba.moviestore.dominio.utils.ValidadorArgumento;
+import co.ceiba.moviestore.dominio.modelo.Cliente;
+import co.ceiba.moviestore.dominio.modelo.Tarjeta;
 
-public class Tarjeta {
+public class TarjetaTestDataBuilder {
 
-	public  static final String DATOS_INCOMPLETOS_TARJETA= "La información se encuentra incompleta";
-	public  static final String NUMERO_DIGITOS_TARJETA = "La tarjeta no cuenta con 16 digitos";
-	
 	private String franquicia;
 	
 	private String numeroCuenta;
 	
 	private Cliente cliente;
-
-	public Tarjeta(String franquicia, String numeroCuenta, Cliente cliente) {
-		
-		ValidadorArgumento.validarObligatorio(numeroCuenta,DATOS_INCOMPLETOS_TARJETA);
-		ValidadorArgumento.validarObligatorio(franquicia,DATOS_INCOMPLETOS_TARJETA);
-		ValidadorArgumento.validarObligatorio(cliente.getCedula(),DATOS_INCOMPLETOS_TARJETA);
-		ValidadorArgumento.validarLongitud(numeroCuenta, 16, NUMERO_DIGITOS_TARJETA);
-		this.franquicia = franquicia;
-		this.numeroCuenta = numeroCuenta;
-		this.cliente = cliente;
+	
+	public TarjetaTestDataBuilder() {
+		this.franquicia="MasterCard";
+		this.numeroCuenta="1234567891234567";
+		this.cliente= new Cliente();
+		cliente.setCedula("123");
 	}
 
 	/**
@@ -32,13 +26,11 @@ public class Tarjeta {
 	}
 
 	/**
-	 * @param franquicia Variable que modifica a  franquicia 
+	 * @param franquicia variable que modifica el valor  franquicia 
 	 */
 	public void setFranquicia(String franquicia) {
 		this.franquicia = franquicia;
 	}
-
-	
 
 	/**
 	 * @return Metodo que obtiene el valor de la variable numeroCuenta
@@ -68,6 +60,7 @@ public class Tarjeta {
 		this.cliente = cliente;
 	}
 	
-	
-	
+	public Tarjeta build() {
+		return new Tarjeta(franquicia, numeroCuenta, cliente);
+	}
 }
