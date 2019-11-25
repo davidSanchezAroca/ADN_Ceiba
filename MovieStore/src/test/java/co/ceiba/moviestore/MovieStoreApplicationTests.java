@@ -6,10 +6,8 @@ import java.util.function.Supplier;
 
 import org.junit.Assert;
 
-
-
-
 public class MovieStoreApplicationTests {
+	
 	private static final String PERO_FUE_LANZADA = " Pero fue lanzada ";
 	private static final String SE_ESPERABA_LA_EXCEPCION = "Se esperaba la excepcion ";
 

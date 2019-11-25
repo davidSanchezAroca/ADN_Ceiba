@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import co.ceiba.moviestore.aplicacion.comando.ComandoCliente;
 import co.ceiba.moviestore.dominio.modelo.Cliente;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCliente;
+import co.ceiba.moviestore.infraestructura.almacenamiento.ClienteAlamacenamiento;
 import co.ceiba.moviestore.infraestructura.entidades.ClienteEntidad;
 import co.ceiba.moviestore.infraestructura.repositoriojpa.ClienteRepositorio;
 
@@ -17,13 +18,17 @@ import co.ceiba.moviestore.infraestructura.repositoriojpa.ClienteRepositorio;
 public class RepositorioClienteJpa  implements RepositorioCliente{
 
 	@Autowired
-	private final ClienteRepositorio repositorioJpa;
+	private final ClienteRepositorio repositorioJpa2;
+	
+	@Autowired
+	private final ClienteAlamacenamiento repositorioJpa;
 	
 	private ModelMapper modelMapper = new ModelMapper();
 	
 
-	public RepositorioClienteJpa(ClienteRepositorio repositorioJpa) {
-		this.repositorioJpa = repositorioJpa;
+	public RepositorioClienteJpa(ClienteRepositorio repositorioJpa2, ClienteAlamacenamiento repositorioJpa) {
+		this.repositorioJpa2 = repositorioJpa2;
+		this.repositorioJpa=repositorioJpa;
 	}
 	
 	@Override

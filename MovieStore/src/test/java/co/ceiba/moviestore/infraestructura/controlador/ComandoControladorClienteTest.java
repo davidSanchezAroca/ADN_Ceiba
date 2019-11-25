@@ -4,7 +4,6 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import javax.transaction.Transactional;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -27,30 +26,27 @@ import co.ceiba.moviestore.aplicacion.comando.ComandoClienteTestDataBuider;
 @AutoConfigureMockMvc
 @Transactional
 public class ComandoControladorClienteTest {
-	
+
 	@Autowired
 	private WebApplicationContext wac;
-	
+
 	@Autowired
-    private MockMvc mocMvc;
-	
+	private MockMvc mocMvc;
+
 	@Autowired
 	private ObjectMapper objectMapper;
-	
+
 	@Before
 	public void setup() throws Exception {
-	this.mocMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
-	}
-	
-	@Test
-	public void crear() throws Exception {
-		ComandoCliente tarjeta= new ComandoClienteTestDataBuider().build();
-		
-		mocMvc.perform(post("/cliente/agregar")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(objectMapper.writeValueAsString(tarjeta)))
-        		.andExpect(status().isOk());
-        		
+		this.mocMvc = MockMvcBuilders.webAppContextSetup(this.wac).build();
 	}
 
+	@Test
+	public void crear() throws Exception {
+		ComandoCliente tarjeta = new ComandoClienteTestDataBuider().build();
+
+		mocMvc.perform(post("/cliente/agregar").contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(tarjeta))).andExpect(status().isOk());
+
+	}
 }
