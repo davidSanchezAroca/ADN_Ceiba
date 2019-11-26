@@ -1,13 +1,13 @@
-package co.ceiba.moviestore.dominio.modelo;
+package co.ceiba.moviestore.aplicacion.comando;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import co.ceiba.moviestore.dominio.utils.ValidadorArgumento;
+import co.ceiba.moviestore.dominio.modelo.Cliente;
 
-public class Orden {
+public class ComandoOrdenTestDataBuilder {
 
-	private static final String FECHA_VALIDA="La fecha no cuenta con un valor asignado";
-	private static final String CLIENTE_NO_EXISTE = "No hay informacion del cliente";
 	private int numeroOrden;
 	
 	private Date fechaOrden;
@@ -19,21 +19,16 @@ public class Orden {
 	private double valor;
 	
 	private Cliente cliente;
-
-	public Orden(int numeroOrden, Date fechaOrden, Date fechaInicio, Date fechaFin, double valor, Cliente cliente) {
-		ValidadorArgumento.validarObligatorio(fechaOrden,FECHA_VALIDA);
-		ValidadorArgumento.validarObligatorio(fechaInicio, FECHA_VALIDA);
-		ValidadorArgumento.validarObligatorio(fechaFin, FECHA_VALIDA);
-		ValidadorArgumento.validarObligatorio(cliente.getCedula(),CLIENTE_NO_EXISTE);
-		this.numeroOrden = numeroOrden;
-		this.fechaOrden = fechaOrden;
-		this.fechaInicio = fechaInicio;
-		this.fechaFin = fechaFin;
-		this.valor = valor;
-		this.cliente = cliente;
-	}
 	
-	public Orden() {}
+	public ComandoOrdenTestDataBuilder() throws ParseException {
+		numeroOrden = 123456789;		
+		fechaOrden = new SimpleDateFormat("yyyy-MM-dd").parse("2019-02-12");
+		fechaInicio = new SimpleDateFormat("yyyy-MM-dd").parse("2019-02-12");
+		fechaFin = new SimpleDateFormat("yyyy-MM-dd").parse("2019-03-12");
+		valor=0.0;
+		cliente = new Cliente();
+		cliente.setCedula("123");
+	}
 
 	/**
 	 * @return Metodo que obtiene el valor de la variable numeroOrden
@@ -43,7 +38,7 @@ public class Orden {
 	}
 
 	/**
-	 * @param numeroOrden Variable que modifica a  numeroOrden 
+	 * @param numeroOrden variable que modifica el valor  numeroOrden 
 	 */
 	public void setNumeroOrden(int numeroOrden) {
 		this.numeroOrden = numeroOrden;
@@ -57,7 +52,7 @@ public class Orden {
 	}
 
 	/**
-	 * @param fechaOrden Variable que modifica a  fechaOrden 
+	 * @param fechaOrden variable que modifica el valor  fechaOrden 
 	 */
 	public void setFechaOrden(Date fechaOrden) {
 		this.fechaOrden = fechaOrden;
@@ -71,7 +66,7 @@ public class Orden {
 	}
 
 	/**
-	 * @param fechaInicio Variable que modifica a  fechaInicio 
+	 * @param fechaInicio variable que modifica el valor  fechaInicio 
 	 */
 	public void setFechaInicio(Date fechaInicio) {
 		this.fechaInicio = fechaInicio;
@@ -85,7 +80,7 @@ public class Orden {
 	}
 
 	/**
-	 * @param fechaFin Variable que modifica a  fechaFin 
+	 * @param fechaFin variable que modifica el valor  fechaFin 
 	 */
 	public void setFechaFin(Date fechaFin) {
 		this.fechaFin = fechaFin;
@@ -99,7 +94,7 @@ public class Orden {
 	}
 
 	/**
-	 * @param valor Variable que modifica a  valor 
+	 * @param valor variable que modifica el valor  valor 
 	 */
 	public void setValor(double valor) {
 		this.valor = valor;
@@ -113,9 +108,13 @@ public class Orden {
 	}
 
 	/**
-	 * @param cliente Variable que modifica a  cliente 
+	 * @param cliente variable que modifica el valor  cliente 
 	 */
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
+	}
+	
+	public ComandoOrden build() {
+		return new ComandoOrden(numeroOrden, fechaOrden, fechaInicio, fechaFin, valor, cliente);
 	}
 }

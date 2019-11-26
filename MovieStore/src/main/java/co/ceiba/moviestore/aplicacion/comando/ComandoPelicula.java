@@ -14,9 +14,7 @@ public class ComandoPelicula {
 		this.idProducto=idProducto;
 	}
 
-	public ComandoPelicula() {
-		super();
-	}
+	public ComandoPelicula() {}
 	
 
 	/**

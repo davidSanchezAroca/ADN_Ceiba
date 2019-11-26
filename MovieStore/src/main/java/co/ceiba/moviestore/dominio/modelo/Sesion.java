@@ -1,7 +1,10 @@
 package co.ceiba.moviestore.dominio.modelo;
 
+import co.ceiba.moviestore.dominio.utils.ValidadorArgumento;
+
 public class Sesion {
 
+	public  static final String DATOS_INCOMPLETOS_SESION= "La informacion se encuentra incompleta";
 	private String usuario;
 	
 	private String password;
@@ -9,6 +12,9 @@ public class Sesion {
 	private Cliente cliente;
 
 	public Sesion(String usuario, String password, Cliente cliente) {
+		ValidadorArgumento.validarObligatorio(usuario, DATOS_INCOMPLETOS_SESION);
+		ValidadorArgumento.validarObligatorio(password, DATOS_INCOMPLETOS_SESION);
+		ValidadorArgumento.validarObligatorio(cliente.getCedula(),DATOS_INCOMPLETOS_SESION);
 		this.usuario = usuario;
 		this.password = password;
 		this.cliente = cliente;

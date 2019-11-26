@@ -1,6 +1,7 @@
 package co.ceiba.moviestore.infraestructura.controller;
 
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,7 +29,7 @@ public class SesionControlador {
 		this.manejadorCrearSesion.crear(comandoSesion);
 	}
 	
-	@PostMapping(path = "/actualizar")
+	@PutMapping(path = "/actualizar")
 	public void actualizar(@RequestBody ComandoSesion comandoSesion) {
 		this.manejadorAcualizarSecion.actualizar(comandoSesion);
 	}

@@ -3,8 +3,6 @@ package co.ceiba.moviestore.infraestructura.adaptador.repositorio;
 import java.util.List;
 
 import javax.transaction.Transactional;
-
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import co.ceiba.moviestore.aplicacion.comando.ComandoPeliculaOrden;
@@ -17,8 +15,6 @@ public class RepositorioPeliculaOrdenJpa implements RepositorioPeliculaOrden{
 	@Autowired
 	private final PeliculaOrdenRepositorio repositorioJpa;
 	
-	private ModelMapper modelMapper = new ModelMapper();
-
 	public RepositorioPeliculaOrdenJpa(PeliculaOrdenRepositorio repositorioJpa) {
 		this.repositorioJpa = repositorioJpa;
 	}
@@ -38,7 +34,6 @@ public class RepositorioPeliculaOrdenJpa implements RepositorioPeliculaOrden{
 
 	@Override
 	public List<ComandoPeliculaOrden> comandoPeliculaOrden() {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	

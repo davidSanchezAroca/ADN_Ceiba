@@ -15,9 +15,7 @@ public class ComandoTarjeta {
 		this.cliente = cliente;
 	}
 
-	public ComandoTarjeta() {
-		super();
-	}
+	public ComandoTarjeta() {}
 
 	/**
 	 * @return Metodo que obtiene el valor de la variable franquicia
