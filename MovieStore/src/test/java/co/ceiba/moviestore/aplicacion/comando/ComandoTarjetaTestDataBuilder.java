@@ -12,7 +12,7 @@ public class ComandoTarjetaTestDataBuilder {
 	
 	public ComandoTarjetaTestDataBuilder() {
 		this.franquicia="visa";
-		this.numeroCuenta="9999";
+		this.numeroCuenta="1234567891234567";
 		this.cliente= new Cliente();
 		cliente.setNombre("juan");
 		cliente.setCedula("123");
