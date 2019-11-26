@@ -1,7 +1,6 @@
 package co.ceiba.moviestore.dominio.testdatabuilder;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import co.ceiba.moviestore.dominio.modelo.Cliente;
@@ -23,9 +22,9 @@ public class OrdenTestDataBuilder {
 	
 	public OrdenTestDataBuilder() throws ParseException {
 		numeroOrden = 123456789;		
-		fechaOrden = new SimpleDateFormat("yyyy-MM-dd").parse("2019-02-12");
-		fechaInicio = new SimpleDateFormat("yyyy-MM-dd").parse("2019-02-12");
-		fechaFin = new SimpleDateFormat("yyyy-MM-dd").parse("2019-03-12");
+		fechaOrden = new Date();
+		fechaInicio = new Date();
+		fechaFin = new Date();
 		valor=0.0;
 		cliente = new Cliente();
 		cliente.setCedula("123");

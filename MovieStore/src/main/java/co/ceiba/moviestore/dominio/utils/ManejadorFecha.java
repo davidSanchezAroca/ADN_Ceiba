@@ -31,24 +31,11 @@ public class ManejadorFecha {
 		return Valor_dia;
 	}
 	
-	public Date generarFechaEntrega(int dias, Date fechaSolicitud) {
-
-		Calendar cal = Calendar.getInstance();
-		cal.setTime(fechaSolicitud);
-		int i = 1;
-		while (i < dias) {
-
-			if (cal.get(Calendar.DAY_OF_WEEK) != Calendar.SUNDAY) {
-				i++;
-				cal.get(Calendar.DAY_OF_WEEK);
-			}
-			cal.add(Calendar.DATE, 1);
-
-		}
-		if (cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) {
-			cal.add(Calendar.DATE, 1);
-		}
-
-		return cal.getTime();
+	public  Date sumarDiasAFecha(Date fecha, int dias){
+	      if (dias==0) return fecha;
+	      Calendar calendar = Calendar.getInstance();
+	      calendar.setTime(fecha); 
+	      calendar.add(Calendar.DAY_OF_YEAR, dias);  
+	      return calendar.getTime(); 
 	}
 }
