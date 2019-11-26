@@ -4,7 +4,7 @@ import co.ceiba.moviestore.dominio.utils.ValidadorArgumento;
 
 public class Tarjeta {
 
-	public  static final String DATOS_INCOMPLETOS_TARJETA= "La información se encuentra incompleta";
+	public  static final String DATOS_INCOMPLETOS_TARJETA= "La informacion se encuentra incompleta";
 	public  static final String NUMERO_DIGITOS_TARJETA = "La tarjeta no cuenta con 16 digitos";
 	
 	private String franquicia;

@@ -13,21 +13,21 @@ public class TarjetaTest {
 	public void validarNumeroTarjeta() {
 	    TarjetaTestDataBuilder tarjetaDataBuilder = new TarjetaTestDataBuilder();
 	    tarjetaDataBuilder.setNumeroCuenta("");
-	    MovieStoreApplicationTests.assertThrows(() -> tarjetaDataBuilder.build(), ExcepcionValorObligatorio.class, "La información se encuentra incompleta");
+	    MovieStoreApplicationTests.assertThrows(() -> tarjetaDataBuilder.build(), ExcepcionValorObligatorio.class, "La informacion se encuentra incompleta");
 	}
 	
 	@Test
 	public void validarFranquicia() {
 		TarjetaTestDataBuilder tarjetaDataBuilder = new TarjetaTestDataBuilder();
 	    tarjetaDataBuilder.setFranquicia("");
-	    MovieStoreApplicationTests.assertThrows(() -> tarjetaDataBuilder.build(), ExcepcionValorObligatorio.class, "La información se encuentra incompleta");
+	    MovieStoreApplicationTests.assertThrows(() -> tarjetaDataBuilder.build(), ExcepcionValorObligatorio.class, "La informacion se encuentra incompleta");
 	}
 	
 	@Test
 	public void validarCedulaCliente() {
 		TarjetaTestDataBuilder tarjetaDataBuilder = new TarjetaTestDataBuilder();
 	    tarjetaDataBuilder.getCliente().setCedula("");
-	    MovieStoreApplicationTests.assertThrows(() -> tarjetaDataBuilder.build(), ExcepcionValorObligatorio.class, "La información se encuentra incompleta");
+	    MovieStoreApplicationTests.assertThrows(() -> tarjetaDataBuilder.build(), ExcepcionValorObligatorio.class, "La informacion se encuentra incompleta");
 	}
 	
 	
