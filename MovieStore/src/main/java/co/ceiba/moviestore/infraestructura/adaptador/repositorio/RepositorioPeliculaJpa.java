@@ -60,7 +60,7 @@ public class RepositorioPeliculaJpa implements RepositorioPelicula {
 	@Override
 	public ComandoPelicula buscar(String nombre) {
 		List<PeliculaEntidad> peliculaEntidad=repositorioJpa.findByNombre(nombre);
-		if(peliculaEntidad.size() > 0) {
+		if(!peliculaEntidad.isEmpty()) {
 		return  modelMapper.map(peliculaEntidad.get(0),ComandoPelicula.class);
 		}
 		return null;
@@ -69,7 +69,6 @@ public class RepositorioPeliculaJpa implements RepositorioPelicula {
 	@Override
 	public List<ComandoPelicula> listarPeliculas(Orden orden) {
 		List<PeliculaEntidad> peliculaEntidad = repositorioJpa.findPelicula(orden.getCliente().getCedula(), orden.getNumeroOrden());
-		System.out.println("entra tam:" + peliculaEntidad.size());
 		List<ComandoPelicula> comando= new ArrayList<>();
 		for(int i=0; i < peliculaEntidad.size(); i++) {
 			comando.add(modelMapper.map(peliculaEntidad.get(i),ComandoPelicula.class));

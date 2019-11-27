@@ -49,7 +49,7 @@ public class RepositorioOrdenJpa implements RepositorioOrden{
 	@Override
 	public ComandoOrden buscarCliente(Orden orden) {
 		List<OrdenEntidad> list=repositorioJpa.findByNumeroOrden(orden.getNumeroOrden(),orden.getCliente().getCedula());
-		if(list.size() > 0) {
+		if(!list.isEmpty()) {
 			return modelMapper.map(list.get(0),ComandoOrden.class);
 		}
 		return null;
@@ -58,7 +58,7 @@ public class RepositorioOrdenJpa implements RepositorioOrden{
 	@Override
 	public ComandoOrden buscar(int numero) {
 		List<OrdenEntidad> ordenEntidad=repositorioJpa.findByNumero(numero);
-		if(ordenEntidad.size() > 0) {
+		if(!ordenEntidad.isEmpty()) {
 			return modelMapper.map(ordenEntidad.get(0),ComandoOrden.class);
 		}
 		return null;

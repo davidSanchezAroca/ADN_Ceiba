@@ -1,6 +1,10 @@
 package co.ceiba.moviestore.infraestructura.controlador;
 
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.core.Is.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 import javax.transaction.Transactional;
@@ -44,8 +48,26 @@ public class ComandoControladorClienteTest {
 
 	@Test
 	public void crear() throws Exception {
-		ComandoCliente tarjeta = new ComandoClienteTestDataBuider().build();
+		ComandoCliente cliente = new ComandoClienteTestDataBuider().build();
 		mocMvc.perform(post("/cliente/agregar").contentType(MediaType.APPLICATION_JSON)
-				.content(objectMapper.writeValueAsString(tarjeta))).andExpect(status().isOk());
+				.content(objectMapper.writeValueAsString(cliente))).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void listar() throws Exception {
+		crear();
+		mocMvc.perform(get("/cliente/listar").contentType(MediaType.APPLICATION_JSON)).
+		andExpect(status().isOk()).
+		andExpect(jsonPath("$", hasSize(1))).
+		andExpect(jsonPath("$[0].cedula", is("123")));
+	}
+	
+	@Test
+	public void actualizar() throws Exception {
+		crear();
+		ComandoCliente cliente = new ComandoClienteTestDataBuider().build();
+		cliente.setNombre("pedro");
+		mocMvc.perform(post("/cliente/actualizar").contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(cliente))).andExpect(status().isOk());
 	}
 }
