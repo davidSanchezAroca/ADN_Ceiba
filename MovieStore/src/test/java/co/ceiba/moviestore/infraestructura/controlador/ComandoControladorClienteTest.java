@@ -2,6 +2,7 @@ package co.ceiba.moviestore.infraestructura.controlador;
 
 import static org.hamcrest.Matchers.hasSize;
 import static org.hamcrest.core.Is.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
@@ -69,5 +70,17 @@ public class ComandoControladorClienteTest {
 		cliente.setNombre("pedro");
 		mocMvc.perform(post("/cliente/actualizar").contentType(MediaType.APPLICATION_JSON)
 				.content(objectMapper.writeValueAsString(cliente))).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void eliminar() throws Exception {
+		crear();
+		mocMvc.perform(delete("/cliente/eliminar/123").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void errorEliminar() throws Exception {
+		mocMvc.perform(delete("/cliente/eliminar/456").contentType(MediaType.APPLICATION_JSON)).andExpect(status().is4xxClientError());
+		
 	}
 }
