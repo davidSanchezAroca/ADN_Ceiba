@@ -1,5 +1,6 @@
 package co.ceiba.moviestore.infraestructura.controller;
 
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -10,6 +11,7 @@ import co.ceiba.moviestore.aplicacion.comando.ComandoPeliculaOrden;
 import co.ceiba.moviestore.aplicacion.comando.manejador.pelicula.orden.ManejadorActualizarPeliculaOrden;
 import co.ceiba.moviestore.aplicacion.comando.manejador.pelicula.orden.ManejadorCrearPeliculaOrden;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping(value = "/pelicula/orden")
 public class PeliculaOrdenControlador {

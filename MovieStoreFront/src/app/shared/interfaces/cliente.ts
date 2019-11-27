@@ -1,6 +1,6 @@
-export interface Cliente {
-    cedula:string;
-    nombre:string;
-    apellido: string;
-    fechaNacimiento: number;
+export interface Factura {
+    cedula:string,
+    nombre:string,
+    apellido:string,
+    fechaNacimiento:number
 }

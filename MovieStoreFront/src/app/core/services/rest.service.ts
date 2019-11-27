@@ -1,13 +1,15 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 import { Http, Headers, RequestOptions } from "@angular/http";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class RestService {
-
   constructor(private http: Http) { }
 
+  /**
+   *
+   **/
   queryPostRegular(route: string, body) {
     let repos = this.http.post((route), body);
     return repos;

@@ -46,7 +46,7 @@ public class RepositorioPeliculaJpa implements RepositorioPelicula {
 		List<PeliculaEntidad> listaPelicula= repositorioJpa.findAll();
 		
 		for(int i=0; i < listaPelicula.size();i++) {
-			listar.add(modelMapper.map(listaPelicula.get(0), ComandoPelicula.class));
+			listar.add(modelMapper.map(listaPelicula.get(i), ComandoPelicula.class));
 		}
 		return listar;
 	}

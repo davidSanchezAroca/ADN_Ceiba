@@ -1,0 +1,48 @@
+<div class="create-container">
+  <h1 *ngIf="!editing">
+      {{ "forms.create_orden" | translate }}
+  </h1>
+  <h1 *ngIf="editing">
+      {{ "forms.edit_orden" | translate }}
+  </h1>
+    <div class="form">
+      <form [formGroup]="myForm">
+        <div class="form-group">
+          <label>{{ "forms.date_orden" | translate }}</label>
+          <input id="fechaOrden" type="text" class="form-control" formControlName="fechaOrden" />
+          <span *ngIf="controlHasError('fechaOrden', 'required')">
+            <strong>{{ "validation.required_field" | translate }}</strong>
+          </span>
+        </div>
+        <div class="form-group">
+          <label>{{ "forms.date_init" | translate }}</label>
+          <input id="fechaInicio" type="text" class="form-control" formControlName="fechaInicio" />
+          <span *ngIf="controlHasError('fechaInicio', 'required')">
+            <strong>{{ "validation.required_field" | translate }}</strong>
+          </span>
+        </div>
+        <div class="form-group">
+          <label>{{ "forms.date_end" | translate }}</label>
+          <input id="fechaFin" type="text" class="form-control" formControlName="fechaFin" />
+          <span *ngIf="controlHasError('fechaFin', 'required')">
+            <strong>{{ "validation.required_field" | translate }}</strong>
+          </span>
+        </div>
+        
+        <div class="form-group">
+          <label>{{ "forms.id" | translate }}</label>
+          <input id="cedula" type="text" class="form-control" formControlName="cedula" />
+          <span *ngIf="controlHasError('cedula', 'required')">
+            <strong>{{ "validation.required_field" | translate }}</strong>
+          </span>
+        </div>
+        <button id="botonCrearOrden" class="btn btn-primary" (click)="store()">
+          {{ "forms.save" | translate }}
+        </button>
+        <p> </p>
+        <button id="botonVolver" class="btn btn-primary" (click)="confirmVolver()">
+            {{ "forms.return" | translate }}
+        </button>
+      </form>
+    </div>
+</div>

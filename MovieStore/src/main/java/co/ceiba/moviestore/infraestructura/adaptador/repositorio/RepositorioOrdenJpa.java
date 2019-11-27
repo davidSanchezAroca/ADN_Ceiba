@@ -41,7 +41,7 @@ public class RepositorioOrdenJpa implements RepositorioOrden{
 		List<ComandoOrden> lista= new ArrayList<>();
 		List<OrdenEntidad> listaOrden= repositorioJpa.findAllCedula(cedula);
 		for(int i =0 ; i < listaOrden.size(); i++) {
-			lista.add(modelMapper.map(listaOrden.get(0),ComandoOrden.class));
+			lista.add(modelMapper.map(listaOrden.get(i),ComandoOrden.class));
 		}
 		return lista;
 	}

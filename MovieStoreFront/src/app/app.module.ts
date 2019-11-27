@@ -1,23 +1,70 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { BrowserModule } from "@angular/platform-browser";
+import { NgModule } from "@angular/core";
+import { TranslateModule, TranslateLoader } from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 import { HttpModule } from "@angular/http";
-import { HttpClientModule } from "@angular/common/http";
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { HttpClient, HttpClientModule } from "@angular/common/http";
+import {
+  ReactiveFormsModule,
+  FormsModule
+} from "@angular/forms";
+
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { UrgenciasComponent } from "./feature/urgencias/urgencias.component";
+import { esLocale } from "ngx-bootstrap/locale";
+import { defineLocale } from "ngx-bootstrap/chronos";
+import es from "@angular/common/locales/es";
+import { registerLocaleData } from "@angular/common";
+import { LOCALE_ID } from "@angular/core";
+import { MostrarFacturaComponent } from './feature/mostrar-factura/mostrar-factura.component';
 import { CrearClienteComponent } from './feature/crear-cliente/crear-cliente.component';
+import { MoviestoreComponent } from './feature/moviestore/moviestore.component';
+import { CrearPeliculaComponent } from './feature/crear-pelicula/crear-pelicula.component';
+import { CrearOrdenComponent } from './feature/crear-orden/crear-orden.component';
+import { ListarOrdenComponent } from './feature/listar-orden/listar-orden.component';
+import { ListarPeliculaComponent } from './feature/listar-pelicula/listar-pelicula.component';
+defineLocale("es", esLocale);
+registerLocaleData(es);
 
 @NgModule({
   declarations: [
     AppComponent,
-    CrearClienteComponent
+    UrgenciasComponent,
+    MostrarFacturaComponent,
+    CrearClienteComponent,
+    MoviestoreComponent,
+    CrearPeliculaComponent,
+    CrearOrdenComponent,
+    ListarOrdenComponent,
+    ListarPeliculaComponent
   ],
   imports: [
     BrowserModule,
     HttpModule,
     HttpClientModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
   ],
-  providers: [],
+  providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: "es-ES"
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+// required for AOT compilation
+export function HttpLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
+}
