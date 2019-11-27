@@ -1,4 +1,5 @@
 package co.ceiba.moviestore.dominio.servicio.orden;
+
 import co.ceiba.moviestore.dominio.excepcion.ExcepcionGenerica;
 import co.ceiba.moviestore.dominio.modelo.Orden;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioOrden;
@@ -24,18 +25,14 @@ public class ServicioCrearOrden {
 	}
 	
 	private void validarEntregaDomingo(Orden orden) {
-	  orden.setFechaFin(manejadorfecha.sumarDiasAFecha(orden.getFechaFin(),1));
 	  if(manejadorfecha.getDiaSemana(orden.getFechaFin()).equals("Domingo")) {
 		  orden.setFechaFin(manejadorfecha.sumarDiasAFecha(orden.getFechaFin(),1));
 	  }
 	}
 	
 	private void validarLunesMartes(Orden orden) {
-		orden.setFechaOrden(manejadorfecha.sumarDiasAFecha(orden.getFechaFin(),1));
-		System.out.println(orden.getFechaOrden());
 		if(manejadorfecha.getDiaSemana(orden.getFechaOrden()).equals("Lunes") || 
 				manejadorfecha.getDiaSemana(orden.getFechaOrden()).equals("Martes")) {
-			System.out.println("entra");
 			throw new ExcepcionGenerica(DIAS_NO_DISPONIBLE);
 		}
 	}

@@ -1,7 +1,6 @@
 package co.ceiba.moviestore.dominio.repositorio;
 
 import java.util.List;
-
 import co.ceiba.moviestore.aplicacion.comando.ComandoOrden;
 import co.ceiba.moviestore.dominio.modelo.Orden;
 
@@ -16,4 +15,5 @@ public interface RepositorioOrden {
 	ComandoOrden buscarCliente(Orden orden);
 	
 	ComandoOrden buscar(int numero);
+	
 }

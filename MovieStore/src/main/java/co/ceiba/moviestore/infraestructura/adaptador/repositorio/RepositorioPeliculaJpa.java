@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.ceiba.moviestore.aplicacion.comando.ComandoPelicula;
+import co.ceiba.moviestore.dominio.modelo.Orden;
 import co.ceiba.moviestore.dominio.modelo.Pelicula;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioPelicula;
 import co.ceiba.moviestore.infraestructura.entidades.PeliculaEntidad;
@@ -64,5 +65,18 @@ public class RepositorioPeliculaJpa implements RepositorioPelicula {
 		}
 		return null;
 	}
+
+	@Override
+	public List<ComandoPelicula> listarPeliculas(Orden orden) {
+		List<PeliculaEntidad> peliculaEntidad = repositorioJpa.findPelicula(orden.getCliente().getCedula(), orden.getNumeroOrden());
+		System.out.println("entra tam:" + peliculaEntidad.size());
+		List<ComandoPelicula> comando= new ArrayList<>();
+		for(int i=0; i < peliculaEntidad.size(); i++) {
+			comando.add(modelMapper.map(peliculaEntidad.get(i),ComandoPelicula.class));
+		}
+		return comando;
+	}
+	
+	
 
 }

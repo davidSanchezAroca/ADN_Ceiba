@@ -3,6 +3,7 @@ package co.ceiba.moviestore.dominio.repositorio;
 import java.util.List;
 
 import co.ceiba.moviestore.aplicacion.comando.ComandoPelicula;
+import co.ceiba.moviestore.dominio.modelo.Orden;
 import co.ceiba.moviestore.dominio.modelo.Pelicula;
 
 public interface RepositorioPelicula {
@@ -16,4 +17,6 @@ public interface RepositorioPelicula {
 	void actualizar(Pelicula pelicula);
 	
 	ComandoPelicula buscar(String nombre);
+	
+	List<ComandoPelicula> listarPeliculas(Orden orden);
 }

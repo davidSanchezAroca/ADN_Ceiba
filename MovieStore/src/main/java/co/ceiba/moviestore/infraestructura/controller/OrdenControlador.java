@@ -14,6 +14,7 @@ import co.ceiba.moviestore.aplicacion.comando.manejador.orden.ManejadorActualiza
 import co.ceiba.moviestore.aplicacion.comando.manejador.orden.ManejadorBuscarOrden;
 import co.ceiba.moviestore.aplicacion.comando.manejador.orden.ManejadorCrearOrden;
 import co.ceiba.moviestore.aplicacion.comando.manejador.orden.ManejadorListarOrden;
+import co.ceiba.moviestore.aplicacion.comando.manejador.orden.ManejadorPrecioOrden;
 
 @RestController
 @RequestMapping(value = "/orden")
@@ -23,19 +24,23 @@ public class OrdenControlador {
 	private final ManejadorListarOrden manejadorListarOrden;
 	private final ManejadorActualizarOrden manejadorActualizarOrden;
 	private final ManejadorBuscarOrden manejadorBuscarOrden;
+	private final ManejadorPrecioOrden manejadorPrecioOrden;
 
 	public OrdenControlador(ManejadorCrearOrden manejadorCrearOrden,
-								ManejadorListarOrden manejadorListarOrden,
-								ManejadorActualizarOrden manejadorActualizarOrden,
-								ManejadorBuscarOrden manejadorBuscarOrden) {
+							ManejadorListarOrden manejadorListarOrden,
+							ManejadorActualizarOrden manejadorActualizarOrden,
+							ManejadorBuscarOrden manejadorBuscarOrden,
+							ManejadorPrecioOrden manejadorPrecioOrden) {
 		this.manejadorCrearOrden = manejadorCrearOrden;
 		this.manejadorListarOrden = manejadorListarOrden;
 		this.manejadorActualizarOrden = manejadorActualizarOrden;
 		this.manejadorBuscarOrden = manejadorBuscarOrden;
+		this.manejadorPrecioOrden = manejadorPrecioOrden;
 	}
 	
 	@PostMapping(path = "/agregar")
 	public void crear(@RequestBody ComandoOrden comandoOrden) {
+		System.out.println(comandoOrden.getFechaOrden());
 		this.manejadorCrearOrden.crear(comandoOrden);
 	}
 	
@@ -52,5 +57,9 @@ public class OrdenControlador {
 	@PostMapping(path = "/buscar")
 	public ComandoOrden buscar(@RequestBody ComandoOrden comandoOrden) {
 		return this.manejadorBuscarOrden.buscar(comandoOrden);
+	}
+	@PostMapping(path = "/precio")
+	public void calcularPrecio(@RequestBody ComandoOrden comandoOrden) {
+		this.manejadorPrecioOrden.precio(comandoOrden);
 	}
 }

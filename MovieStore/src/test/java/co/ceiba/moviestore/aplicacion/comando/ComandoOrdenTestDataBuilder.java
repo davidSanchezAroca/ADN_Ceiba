@@ -22,9 +22,9 @@ public class ComandoOrdenTestDataBuilder {
 	
 	public ComandoOrdenTestDataBuilder() throws ParseException {
 		numeroOrden = 123456789;		
-		fechaOrden = new SimpleDateFormat("yyyy-MM-dd").parse("2019-02-12");
-		fechaInicio = new SimpleDateFormat("yyyy-MM-dd").parse("2019-02-12");
-		fechaFin = new SimpleDateFormat("yyyy-MM-dd").parse("2019-03-12");
+		fechaOrden = new SimpleDateFormat("yyyy-MM-dd").parse("2019-02-01");
+		fechaInicio = new SimpleDateFormat("yyyy-MM-dd").parse("2019-02-01");
+		fechaFin = new SimpleDateFormat("yyyy-MM-dd").parse("2019-03-02");
 		valor=0.0;
 		cliente = new Cliente();
 		cliente.setCedula("123");

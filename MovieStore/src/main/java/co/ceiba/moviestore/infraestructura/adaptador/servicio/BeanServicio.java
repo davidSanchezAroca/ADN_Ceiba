@@ -21,6 +21,7 @@ import co.ceiba.moviestore.dominio.servicio.orden.ServicioActualizarOrden;
 import co.ceiba.moviestore.dominio.servicio.orden.ServicioBuscarOrden;
 import co.ceiba.moviestore.dominio.servicio.orden.ServicioCrearOrden;
 import co.ceiba.moviestore.dominio.servicio.orden.ServicioListarOrden;
+import co.ceiba.moviestore.dominio.servicio.orden.ServicioPrecioOrden;
 import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioActualizarPelicula;
 import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioCrearPelicula;
 import co.ceiba.moviestore.dominio.servicio.pelicula.ServicioEliminarPelicula;
@@ -138,6 +139,12 @@ public class BeanServicio {
 	@Bean
 	public ServicioBuscarOrden servicioBuscarOrden(RepositorioOrden repositorioOrden) {
 		return new ServicioBuscarOrden(repositorioOrden);
+	}
+	
+	@Bean
+	public ServicioPrecioOrden servicioPrecioOrden(RepositorioOrden repositorioOrden,
+			RepositorioPelicula repositorioPelicula) {
+		return new ServicioPrecioOrden(repositorioOrden,repositorioPelicula);
 	}
 	
 	/********************************************************
