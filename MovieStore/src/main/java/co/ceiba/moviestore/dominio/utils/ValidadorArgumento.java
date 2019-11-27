@@ -8,7 +8,7 @@ public class ValidadorArgumento {
 	private ValidadorArgumento() {}
 
     public static void validarObligatorio(Object valor, String mensaje) {
-        if (valor == null || valor.equals("")) {
+        if (valor == null || "".equals(valor)) {
             throw new ExcepcionValorObligatorio(mensaje);
         }
     }

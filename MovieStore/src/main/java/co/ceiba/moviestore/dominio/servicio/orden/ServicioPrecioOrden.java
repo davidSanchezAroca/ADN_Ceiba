@@ -27,7 +27,7 @@ public class ServicioPrecioOrden {
 	public void precio(Orden orden) {
 		List<ComandoPelicula> peliculas = repositorioPelicula.listarPeliculas(orden);
 		double precio=0;
-		if(peliculas.size() > 0 ) {
+		if(!peliculas.isEmpty()) {
 			for(int i = 0; i < peliculas.size(); i++) {
 				precio+= peliculas.get(i).getValor();
 			}			
@@ -36,7 +36,7 @@ public class ServicioPrecioOrden {
 			}					
 		}
 		
-		if(manejadorfecha.getDiaSemana(orden.getFechaFin()).equals("Domingo")) {
+		if("Domingo".equals(manejadorfecha.getDiaSemana(orden.getFechaFin()))) {
 			precio= precio*2;
 		}
 		orden.setValor(precio);

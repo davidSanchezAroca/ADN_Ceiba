@@ -53,5 +53,24 @@ public class ComandoControladorOrdenTest {
 		
 	}
 	
+	@Test
+	public void precio() throws Exception {
+		crear();
+		ComandoOrden orden = new ComandoOrdenTestDataBuilder().build();
+		mocMvc.perform(post("/orden/precio").contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(orden))).andExpect(status().isOk());
+		
+	}
+	
+	@Test
+	public void actualizar() throws Exception {
+		crear();
+		ComandoOrden orden = new ComandoOrdenTestDataBuilder().build();
+		orden.setValor(54.0);
+		mocMvc.perform(post("/orden/actualizar").contentType(MediaType.APPLICATION_JSON)
+				.content(objectMapper.writeValueAsString(orden))).andExpect(status().isOk());
+		
+	}
+	
 	
 }

@@ -25,14 +25,14 @@ public class ServicioCrearOrden {
 	}
 	
 	private void validarEntregaDomingo(Orden orden) {
-	  if(manejadorfecha.getDiaSemana(orden.getFechaFin()).equals("Domingo")) {
+	  if("Domingo".equals(manejadorfecha.getDiaSemana(orden.getFechaFin()))) {
 		  orden.setFechaFin(manejadorfecha.sumarDiasAFecha(orden.getFechaFin(),1));
 	  }
 	}
 	
 	private void validarLunesMartes(Orden orden) {
-		if(manejadorfecha.getDiaSemana(orden.getFechaOrden()).equals("Lunes") || 
-				manejadorfecha.getDiaSemana(orden.getFechaOrden()).equals("Martes")) {
+		if("Lunes".equals(manejadorfecha.getDiaSemana(orden.getFechaOrden())) || 
+				"Martes".equals(manejadorfecha.getDiaSemana(orden.getFechaOrden()))) {
 			throw new ExcepcionGenerica(DIAS_NO_DISPONIBLE);
 		}
 	}
