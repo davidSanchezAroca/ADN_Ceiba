@@ -2,11 +2,19 @@ package co.ceiba.moviestore.dominio.modelo;
 
 import java.util.Date;
 
+import co.ceiba.moviestore.dominio.utils.ValidadorArgumento;
+
 public class Cliente {
 
 	/**
 	 * Atributos de la clase cliente
 	 */
+	
+	private static final String LA_CEDULA_ES_OBLIGATORIA= "La cedula es un dato obligatorio";
+	private static final String EL_NOMBRE_ES_OBLIGATORIO = "El nombre es un dato obligatorio";
+	private static final String EL_APELLIDO_ES_OBLIGATORIO = "El apellido es un dato obligatorio";
+	private static final String LA_FECHA_ES_OBLIGATORIA = "La fecha es un dato obligatorio";
+	
 	private String cedula;
 	
 	private String nombre;
@@ -23,6 +31,10 @@ public class Cliente {
 	 * @param fechaNacimiento
 	 */
 	public Cliente(String cedula, String nombre, String apellido, Date fechaNacimiento) {
+		ValidadorArgumento.validarObligatorio(cedula, LA_CEDULA_ES_OBLIGATORIA);
+		ValidadorArgumento.validarObligatorio(nombre, EL_NOMBRE_ES_OBLIGATORIO);
+		ValidadorArgumento.validarObligatorio(apellido, EL_APELLIDO_ES_OBLIGATORIO);
+		ValidadorArgumento.validarObligatorio(fechaNacimiento, LA_FECHA_ES_OBLIGATORIA);
 		this.cedula = cedula;
 		this.nombre = nombre;
 		this.apellido = apellido;

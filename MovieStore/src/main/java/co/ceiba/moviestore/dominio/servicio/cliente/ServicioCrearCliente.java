@@ -2,7 +2,7 @@ package co.ceiba.moviestore.dominio.servicio.cliente;
 
 import org.springframework.stereotype.Component;
 
-import co.ceiba.moviestore.dominio.excepcion.ExcepcionGenerica;
+import co.ceiba.moviestore.dominio.excepcion.ExcepcionDuplicidad;
 import co.ceiba.moviestore.dominio.modelo.Cliente;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCliente;
 
@@ -24,7 +24,7 @@ public class ServicioCrearCliente {
 	public void validarExistenciaPrevia(String cedula) {
 		boolean existe= this.repositorioCliente.existe(cedula);
 		if(existe) {
-			throw new ExcepcionGenerica(EL_CLIENTE_YA_EXISTE);
+			throw new ExcepcionDuplicidad(EL_CLIENTE_YA_EXISTE);
 		}
 	}
 	

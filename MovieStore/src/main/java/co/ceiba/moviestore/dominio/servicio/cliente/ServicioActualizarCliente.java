@@ -9,7 +9,7 @@ import co.ceiba.moviestore.dominio.repositorio.RepositorioCliente;
 @Component
 public class ServicioActualizarCliente {
 
-	private final String NO_EXISTE_EL_CLIENTE="No existe el cliente en el sistema";
+	private static final String NO_EXISTE_EL_CLIENTE = "No existe el cliente en el sistema";
 	private RepositorioCliente repositorioCliente;
 
 	public ServicioActualizarCliente(RepositorioCliente repositorioCliente) {

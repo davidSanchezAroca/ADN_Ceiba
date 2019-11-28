@@ -1,7 +1,13 @@
 package co.ceiba.moviestore.dominio.modelo;
 
+import co.ceiba.moviestore.dominio.utils.ValidadorArgumento;
+
 public class Pelicula {
 
+	private static final String EL_NOMBRE_ES_UN_DATO_OBLIGATORIO = "El nombre es un dato obligatorio.";
+	
+	private static final String EL_VALOR_ES_UN_DATO_OBLIGATORIO = "El valor es un dato obligatorio";
+	
 	private int idProducto;
 	
 	private String nombre;
@@ -9,6 +15,8 @@ public class Pelicula {
 	private double valor;
 
 	public Pelicula(int idProducto, String nombre, double valor) {
+		ValidadorArgumento.validarObligatorio(nombre, EL_NOMBRE_ES_UN_DATO_OBLIGATORIO);
+		ValidadorArgumento.validarNumero(valor, EL_VALOR_ES_UN_DATO_OBLIGATORIO);
 		this.nombre = nombre;
 		this.valor = valor;
 		this.idProducto = idProducto;

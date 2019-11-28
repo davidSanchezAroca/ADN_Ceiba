@@ -1,5 +1,6 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, by } from 'protractor';
+import { element } from '@angular/core/src/render3';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -10,7 +11,7 @@ describe('workspace-project App', () => {
 
   it('should display welcome message', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to front!');
+    expect(page.getTitleText()).toEqual('MovieStore');
   });
 
   afterEach(async () => {

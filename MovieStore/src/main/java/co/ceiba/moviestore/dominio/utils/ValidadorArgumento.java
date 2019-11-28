@@ -18,4 +18,10 @@ public class ValidadorArgumento {
             throw new ExcepcionGenerica(mensaje);
         }
     }
+    
+    public static void validarNumero(double valor, String mensaje) {
+    	if(valor==0) {
+    		throw new ExcepcionValorObligatorio(mensaje);
+    	}
+    }
 }

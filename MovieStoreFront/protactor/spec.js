@@ -1,71 +1,86 @@
 // spec.js
 
-//Patron page object
 describe('Prueba flujo principal', function() {
     it('should have a title', function() {
       browser.get('http://localhost:4200/');
-  
-      expect(browser.getTitle()).toEqual('Urgencias');
+      console.log(browser.getTitle());
+      expect(browser.getTitle()).toEqual('MovieStore');
     });
   });
 
-  describe('Boton nueva urgencia', function() {
-    it('crear urgencia', function() {
+ 
+  describe('Boton nuevo usuario', function() {
+    it('boton usuario', function() {
       browser.get('http://localhost:4200/');
-  
-      element(by.id('crearUrgencia')).click();
-  
-      expect(browser.getCurrentUrl()).toBe('http://localhost:4200/urgencia-form'); 
+      element(by.id('crearCliente')).click();
+      expect(browser.getCurrentUrl()).toBe('http://localhost:4200/cliente-form'); 
     });
   });
 
-  describe('Creacion urgencia', function() {
-    it('creacion nueva urgencia', function() {
-      browser.get('http://localhost:4200/urgencia-form');
-      element(by.id('identificacion')).sendKeys(1094942293);
-      element(by.id('nombrePaciente')).sendKeys("Jhon");
-      element(by.id('fechaIngreso')).sendKeys("02/02/2012");
-      element(by.id("eps")).sendKeys("SURA");
-      element(by.id('botonCrearUrgencia')).click();
+
+  describe('Creacion usuario', function() {
+    it('creacion nueva usuario', function() {
+      browser.get('http://localhost:4200/cliente-form');
+      element(by.id('cedula')).sendKeys(123);
+      element(by.id('nombre')).sendKeys("juan");
+      element(by.id('apellido')).sendKeys("sanchez");
+      element(by.id('fechaNacimiento')).sendKeys("2012-02-12");
+      element(by.id('botonCrearUsuario')).click();
       element(by.buttonText('OK')).click();
-      
-  
-      expect(browser.getCurrentUrl()).toBe('http://localhost:4200/urgencias'); 
+      expect(browser.getCurrentUrl()).toBe('http://localhost:4200/movie-store'); 
     });
-  })
+  });
 
-  describe('Boton nueva urgencia', function() {
-    it('crear urgencia', function() {
+  describe('Creacion pelicula', function() {
+    it('creacion nueva pelicula', function() {
+      browser.get('http://localhost:4200/pelicula-form');
+      element(by.id('name')).sendKeys("destino final");
+      element(by.id('valor')).sendKeys(50);
+      element(by.id('botonCrearPelicula')).click();
+      element(by.buttonText('OK')).click();
+      expect(browser.getCurrentUrl()).toBe('http://localhost:4200/movie-store'); 
+    });
+  });
+
+ 
+  describe('Boton nueva pelicula', function() {
+    it('crear pelicula', function() {
       browser.get('http://localhost:4200/');
-  
-      element(by.id('crearUrgencia')).click();
-  
-      expect(browser.getCurrentUrl()).toBe('http://localhost:4200/urgencia-form'); 
+      element(by.id('CrearPelicula')).click();
+      expect(browser.getCurrentUrl()).toBe('http://localhost:4200/pelicula-form'); 
+    });
+  });
+
+  describe('Boton calcular precio', function() {
+    it('boton precio', function() {
+      browser.get('http://localhost:4200/listar-orden-form');
+      element(by.id('cedula')).sendKeys(123);
+      element(by.buttonText('listar')).click();
+      expect(browser.getCurrentUrl()).toBe('http://localhost:4200/listar-orden-form');
     });
   });
 
 
-  describe('Boton facturar urgencia', function() {
-    it('facturar urgencia', function() {
-      browser.get('http://localhost:4200/urgencias');
-  
-      element(by.id('botonFacturar')).click();
-      element(by.buttonText('SI')).click();
-
-
-      expect(browser.getCurrentUrl()).toBe('http://localhost:4200/factura/1094942293'); 
+  describe('crear orden', function(){
+    it('crear orden',function(){
+      browser.get('http://localhost:4200/orden-form');
+      element(by.id('fechaOrden')).sendKeys("2012-02-12");
+      element(by.id('fechaInicio')).sendKeys("2012-02-12");
+      element(by.id('fechaFin')).sendKeys("2012-02-12");
+      element(by.id('cedula')).sendKeys(123);
+      element(by.id('botonCrearOrden')).click();
+      element(by.buttonText('OK')).click();
+      expect(browser.getCurrentUrl()).toBe('http://localhost:4200/movie-store');
     });
   });
 
-  describe('Facturar', function() {
-    it('Facturar', function() {
-      browser.get('http://localhost:4200/factura/1094942293');
-      element(by.id('facturar')).click();
-      element(by.buttonText('SI')).click();
-      
-  
-      expect(browser.getCurrentUrl()).toBe('http://localhost:4200/urgencias'); 
+  describe('Asociar pelicula orden', function(){
+    it('Asociar pelicula orden',function(){
+      browser.get('http://localhost:4200/listar-pelicula-form');
+      element(by.id('nombre')).sendKeys("destino final");
+      element(by.id('orden')).sendKeys(1);
+      element(by.id('botonAgregarpeliculaorden')).click();
+      element(by.buttonText('OK')).click();
+      expect(browser.getCurrentUrl()).toBe('http://localhost:4200/movie-store');
     });
-  })
-
-  ;
+  });

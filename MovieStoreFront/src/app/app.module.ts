@@ -11,13 +11,11 @@ import {
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { UrgenciasComponent } from "./feature/urgencias/urgencias.component";
 import { esLocale } from "ngx-bootstrap/locale";
 import { defineLocale } from "ngx-bootstrap/chronos";
 import es from "@angular/common/locales/es";
 import { registerLocaleData } from "@angular/common";
 import { LOCALE_ID } from "@angular/core";
-import { MostrarFacturaComponent } from './feature/mostrar-factura/mostrar-factura.component';
 import { CrearClienteComponent } from './feature/crear-cliente/crear-cliente.component';
 import { MoviestoreComponent } from './feature/moviestore/moviestore.component';
 import { CrearPeliculaComponent } from './feature/crear-pelicula/crear-pelicula.component';
@@ -30,8 +28,6 @@ registerLocaleData(es);
 @NgModule({
   declarations: [
     AppComponent,
-    UrgenciasComponent,
-    MostrarFacturaComponent,
     CrearClienteComponent,
     MoviestoreComponent,
     CrearPeliculaComponent,

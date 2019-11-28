@@ -79,8 +79,8 @@
     "congratulations": "Felicitaciones!",
     "confirm": "Confirmar",
     "error": "Error",
-    "deleted_urgencia": "El paciente se ha eliminado",
-	"factuar_exito": "El paciente ha salido exitosamente",
+    "deleted_urgencia": "se ha eliminado exitosamente",
+	"factuar_exito": "Se ha agregado exitosamente",
     "sure_to_delete": "¿Está seguro de calcular el precio?",
 	"sure_to_volver": "¿Está seguro que desea salir?",
 	"registrar_operacion": "Se registro la operación",
@@ -92,7 +92,7 @@
     "important": "Importante",
     "success": "Exito",
     "upload_can_take_long": "La carga de las tarifas se hará en segundo plano y puede tomar varios minutos.",
-    "stored_urgencia":"Paciente ingresado",
+    "stored_urgencia":"Registro ingresado",
     "not_login":"No puede iniciar sesión, intente más tarde"
   }
 }

@@ -37,10 +37,9 @@ export class CrearClienteComponent implements OnInit {
       fechaNacimiento: new FormControl("fechaNacimiento", [Validators.required])
     });
 
-    if (null !== this.cedula && undefined !== this.cedula) {
-      this.myForm.controls["cedula"].setValue(this.cedula);
-      this.editing = true;
-    }
+   
+
+    this.myForm.controls["cedula"].setValue("");
 
     this.myForm.controls["nombre"].setValue("");
 
