@@ -67,4 +67,13 @@ public class ComandoControladorPeliculaTest {
 		andExpect(jsonPath("$", hasSize(1))).
 		andExpect(jsonPath("$[0].nombre", is("Avengers")));
 	}
+	
+	@Test
+	public void actualizar() throws Exception {
+		crear();
+		ComandoPelicula comandoPelicula = new ComandoPeliculaTestDataBuilder().build();
+		comandoPelicula.setNombre("hola");
+		mocMvc.perform(post("/pelicula/actualizar").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(comandoPelicula))).andExpect(status().isOk());
+
+	}
 }
