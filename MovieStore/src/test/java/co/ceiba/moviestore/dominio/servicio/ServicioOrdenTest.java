@@ -22,4 +22,6 @@ public class ServicioOrdenTest {
 		orden.setFechaOrden(new SimpleDateFormat("yyyy-MM-dd").parse("2019-11-25"));
 		MovieStoreApplicationTests.assertThrows(()-> servicioCrearOrden.crear(orden),ExcepcionGenerica.class, "No se permite prestar peliculas");
 	}
+	
+	
 }

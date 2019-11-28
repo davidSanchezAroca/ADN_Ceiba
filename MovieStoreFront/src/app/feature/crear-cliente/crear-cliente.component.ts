@@ -74,6 +74,7 @@ export class CrearClienteComponent implements OnInit {
     let body = JSON.stringify(data);
     this.service.queryPost(url, body).subscribe(data => {
       let result = data;
+      console.log(result);
       if (result) {
         swal({
           title: this.translate.instant("alerts.success"),
