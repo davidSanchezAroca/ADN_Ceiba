@@ -10,6 +10,7 @@ import co.ceiba.moviestore.dominio.repositorio.RepositorioOrden;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioPelicula;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioPeliculaOrden;
 import co.ceiba.moviestore.dominio.servicio.pelicula.orden.ServicioActualizarPeliculaOrden;
+import co.ceiba.moviestore.dominio.servicio.pelicula.orden.ServicioCrearPeliculaOrden;
 import co.ceiba.moviestore.dominio.testdatabuilder.PeliculaOrdenTestDataBuilder;
 
 public class ServicioPeliculaOrdenTest {
@@ -21,7 +22,15 @@ public class ServicioPeliculaOrdenTest {
 		RepositorioPelicula repositorioPelicula = Mockito.mock(RepositorioPelicula.class);
 		RepositorioOrden repositorioOrden = Mockito.mock(RepositorioOrden.class);
 		ServicioActualizarPeliculaOrden servicio= new ServicioActualizarPeliculaOrden(repositorioPeliculaOrden, repositorioPelicula, repositorioOrden);
-		MovieStoreApplicationTests.assertThrows(()-> servicio.actualizar(peliculaOrden),ExcepcionGenerica.class, "No existe los elementos a eliminar");
-		
+		MovieStoreApplicationTests.assertThrows(()-> servicio.actualizar(peliculaOrden),ExcepcionGenerica.class, "No existe los elementos a eliminar");	
+	}
+	@Test
+	public void crear() {
+		PeliculaOrden  peliculaOrden =  new PeliculaOrdenTestDataBuilder().build();
+		RepositorioPeliculaOrden repositorioPeliculaOrden = Mockito.mock(RepositorioPeliculaOrden.class);
+		RepositorioPelicula repositorioPelicula = Mockito.mock(RepositorioPelicula.class);
+		RepositorioOrden repositorioOrden = Mockito.mock(RepositorioOrden.class);
+		ServicioCrearPeliculaOrden servicio = new ServicioCrearPeliculaOrden(repositorioPeliculaOrden, repositorioPelicula, repositorioOrden);
+		MovieStoreApplicationTests.assertThrows(() -> servicio.crear(peliculaOrden),ExcepcionGenerica.class, "No existe los elementos a asociar");
 	}
 }
