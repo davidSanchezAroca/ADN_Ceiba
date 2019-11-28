@@ -33,4 +33,5 @@ public class ServicioPeliculaOrdenTest {
 		ServicioCrearPeliculaOrden servicio = new ServicioCrearPeliculaOrden(repositorioPeliculaOrden, repositorioPelicula, repositorioOrden);
 		MovieStoreApplicationTests.assertThrows(() -> servicio.crear(peliculaOrden),ExcepcionGenerica.class, "No existe los elementos a asociar");
 	}
+	
 }

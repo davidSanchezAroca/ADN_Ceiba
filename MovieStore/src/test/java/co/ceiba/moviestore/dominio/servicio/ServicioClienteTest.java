@@ -8,6 +8,7 @@ import co.ceiba.moviestore.dominio.excepcion.ExcepcionDuplicidad;
 import co.ceiba.moviestore.dominio.excepcion.ExcepcionGenerica;
 import co.ceiba.moviestore.dominio.modelo.Cliente;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioCliente;
+import co.ceiba.moviestore.dominio.servicio.cliente.ServicioActualizarCliente;
 import co.ceiba.moviestore.dominio.servicio.cliente.ServicioCrearCliente;
 import co.ceiba.moviestore.dominio.servicio.cliente.ServicioEliminarCliente;
 import co.ceiba.moviestore.dominio.testdatabuilder.ClienteTestDataBuilder;
@@ -33,5 +34,17 @@ public class ServicioClienteTest {
 		ServicioEliminarCliente servicioEliminarCliente = new ServicioEliminarCliente(repositorioCliente);
 		
 		MovieStoreApplicationTests.assertThrows(() -> servicioEliminarCliente.eliminar(cliente.getCedula()), ExcepcionGenerica.class, "El cliente no existe en el sistema");
+	}
+	
+	@Test
+	public void actualizar() {
+		Cliente cliente = new ClienteTestDataBuilder().build();
+		RepositorioCliente repositorioCliente = Mockito.mock(RepositorioCliente.class);
+		Mockito.when(repositorioCliente.existe(Mockito.any())).thenReturn(false);
+		
+		ServicioActualizarCliente servicio= new ServicioActualizarCliente(repositorioCliente);
+		
+		MovieStoreApplicationTests.assertThrows(() -> servicio.actualizar(cliente), ExcepcionGenerica.class, "No existe el cliente en el sistema");
+
 	}
 }

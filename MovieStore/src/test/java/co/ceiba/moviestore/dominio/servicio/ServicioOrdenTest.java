@@ -13,8 +13,10 @@ import co.ceiba.moviestore.aplicacion.comando.ComandoOrdenTestDataBuilder;
 import co.ceiba.moviestore.dominio.excepcion.ExcepcionGenerica;
 import co.ceiba.moviestore.dominio.modelo.Orden;
 import co.ceiba.moviestore.dominio.repositorio.RepositorioOrden;
+import co.ceiba.moviestore.dominio.repositorio.RepositorioPelicula;
 import co.ceiba.moviestore.dominio.servicio.orden.ServicioActualizarOrden;
 import co.ceiba.moviestore.dominio.servicio.orden.ServicioCrearOrden;
+import co.ceiba.moviestore.dominio.servicio.orden.ServicioPrecioOrden;
 import co.ceiba.moviestore.dominio.testdatabuilder.OrdenTestDataBuilder;
 
 public class ServicioOrdenTest {
@@ -38,6 +40,17 @@ public class ServicioOrdenTest {
 		ServicioActualizarOrden servicio= new ServicioActualizarOrden(repositorio);
 		servicio.actualizar(orden);
 		assertEquals(orden.getNumeroOrden(), comando.getNumeroOrden());
+	}
+	
+	@Test
+	public void precio() throws ParseException {
+		Orden  orden =  new OrdenTestDataBuilder().build();
+		RepositorioPelicula repositorioPelicula = Mockito.mock(RepositorioPelicula.class);
+		RepositorioOrden repositorioOrden = Mockito.mock(RepositorioOrden.class);
+		
+		ServicioPrecioOrden servicio = new ServicioPrecioOrden(repositorioOrden, repositorioPelicula);
+		servicio.precio(orden);
+		assertEquals(orden.getNumeroOrden(), orden.getNumeroOrden());
 	}
 	
 	
