@@ -1,6 +1,5 @@
 package co.ceiba.moviestore.aplicacion.comando;
 
-import co.ceiba.moviestore.dominio.modelo.Pelicula;
 
 public class ComandoPeliculaTestDataBuilder {
 	
