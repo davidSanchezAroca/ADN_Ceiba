@@ -57,4 +57,5 @@ public class ComandoControladorCategoria {
 		crear();
 		mocMvc.perform(delete("/categoria/eliminar/terror").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
 	}
+	
 }

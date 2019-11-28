@@ -1,7 +1,13 @@
 package co.ceiba.moviestore.infraestructura.controlador;
 
 import javax.transaction.Transactional;
+
+import static org.hamcrest.Matchers.hasSize;
+import static org.hamcrest.core.Is.is;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 import org.junit.Before;
 import org.junit.Test;
@@ -44,5 +50,21 @@ public class ComandoControladorPeliculaTest {
 	public void crear() throws Exception {
 		ComandoPelicula comandoPelicula = new ComandoPeliculaTestDataBuilder().build();
 		mocMvc.perform(post("/pelicula/agregar").contentType(MediaType.APPLICATION_JSON).content(objectMapper.writeValueAsString(comandoPelicula))).andExpect(status().isOk());
+	}
+	
+	@Test
+	public void eliminar() throws Exception {
+		crear();
+		mocMvc.perform(delete("/pelicula/eliminar/Avengers").contentType(MediaType.APPLICATION_JSON)).andExpect(status().isOk());
+	}
+	
+
+	@Test
+	public void listar() throws Exception {
+		crear();
+		mocMvc.perform(get("/pelicula/listar").contentType(MediaType.APPLICATION_JSON)).
+		andExpect(status().isOk()).
+		andExpect(jsonPath("$", hasSize(1))).
+		andExpect(jsonPath("$[0].nombre", is("Avengers")));
 	}
 }
