@@ -24,7 +24,6 @@ private final RepositorioPeliculaOrden repositorioPeliculaOrden;
 	}
 	
 	public void actualizar(PeliculaOrden peliculaOrden) {
-		System.out.println(peliculaOrden.getOrden().getNumeroOrden()+"<--->"+peliculaOrden.getPelicula().getNombre());
 		ComandoOrden orden= buscarOrden(peliculaOrden.getOrden().getNumeroOrden());
 		ComandoPelicula pelicula= buscarPelicula(peliculaOrden.getPelicula().getNombre());
 		if(orden == null || pelicula==null) {
