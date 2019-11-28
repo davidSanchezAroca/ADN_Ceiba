@@ -5,6 +5,7 @@ import swal from "sweetalert2";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 import { RestService } from 'src/app/core/services/rest.service';
 
+
 @Component({
   selector: 'app-crear-cliente',
   templateUrl: './crear-cliente.component.html',
@@ -63,7 +64,7 @@ export class CrearClienteComponent implements OnInit {
       apellido: controls["apellido"].value,
       fechaNacimiento: controls["fechaNacimiento"].value,
     };
-    let url = `http://localhost:8080/cliente/agregar`;
+    let url = `/api/cliente/agregar`;
 
     let data = {
       "cedula": datosCliente.cedula,
@@ -102,7 +103,17 @@ export class CrearClienteComponent implements OnInit {
         });
       }
     }, err => {
-      console.log(err);
+      swal({
+        title: this.translate.instant("alerts.error"),
+        text: this.translate.instant("ya existe el cliente"),
+        type: "error",
+        showCancelButton: false,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: this.translate.instant("buttons.ok"),
+      }).then(result => {
+        return false;
+      });
     });
   }
 
@@ -122,6 +133,7 @@ export class CrearClienteComponent implements OnInit {
       }
     });
   }
+
   public controlHasError(controlName: string, validationType: string): boolean {
     const control = this.myForm.controls[controlName];
     if (!control) {

@@ -6,6 +6,7 @@ import { CrearClienteComponent } from './feature/crear-cliente/crear-cliente.com
 import { CrearPeliculaComponent } from './feature/crear-pelicula/crear-pelicula.component';
 import { CrearOrdenComponent } from './feature/crear-orden/crear-orden.component';
 import { ListarPeliculaComponent } from './feature/listar-pelicula/listar-pelicula.component';
+import { ListarClienteComponent } from './feature/listar-cliente/listar-cliente.component';
 
 
 
@@ -20,7 +21,8 @@ const routes: Routes = [
       { path: "listar-pelicula-form", component: ListarPeliculaComponent},
       { path: "pelicula-form", component: CrearPeliculaComponent },
       { path: "orden-form", component: CrearOrdenComponent},
-      { path: "cliente-form", component: CrearClienteComponent}
+      { path: "cliente-form", component: CrearClienteComponent},
+      { path: "listar-cliente-form", component: ListarClienteComponent}
     ]
   }
 ];

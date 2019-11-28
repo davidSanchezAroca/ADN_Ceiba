@@ -22,6 +22,8 @@ import { CrearPeliculaComponent } from './feature/crear-pelicula/crear-pelicula.
 import { CrearOrdenComponent } from './feature/crear-orden/crear-orden.component';
 import { ListarOrdenComponent } from './feature/listar-orden/listar-orden.component';
 import { ListarPeliculaComponent } from './feature/listar-pelicula/listar-pelicula.component';
+import { ListarClienteComponent } from './feature/listar-cliente/listar-cliente.component';
+
 defineLocale("es", esLocale);
 registerLocaleData(es);
 
@@ -33,7 +35,8 @@ registerLocaleData(es);
     CrearPeliculaComponent,
     CrearOrdenComponent,
     ListarOrdenComponent,
-    ListarPeliculaComponent
+    ListarPeliculaComponent,
+    ListarClienteComponent
   ],
   imports: [
     BrowserModule,
@@ -60,7 +63,6 @@ registerLocaleData(es);
 })
 export class AppModule { }
 
-// required for AOT compilation
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http, "./assets/i18n/", ".json");
 }
