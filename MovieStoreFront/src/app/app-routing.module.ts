@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { ListarOrdenComponent } from './feature/listar-orden/listar-orden.component';
 import { MoviestoreComponent } from './feature/moviestore/moviestore.component';
-import { CrearClienteModule } from './feature/crear-cliente/crear-cliente.module';
 import { CrearPeliculaComponent } from './feature/crear-pelicula/crear-pelicula.component';
 import { CrearOrdenComponent } from './feature/crear-orden/crear-orden.component';
 import { ListarPeliculaComponent } from './feature/listar-pelicula/listar-pelicula.component';
@@ -22,8 +21,8 @@ const routes: Routes = [
       { path: "pelicula-form", component: CrearPeliculaComponent },
       { path: "orden-form", component: CrearOrdenComponent },
       {
-        path: "cliente-form",
-        loadChildren: "./feature/crear-cliente/crear-cliente.module#CrearClienteModule"
+        path: 'cliente-form',
+        loadChildren: () => import('./feature/crear-cliente/crear-cliente.module').then(m => m.CrearClienteModule)
       },
       { path: "listar-cliente-form", component: ListarClienteComponent },
       { path: '**', redirectTo: 'cliente-form' },

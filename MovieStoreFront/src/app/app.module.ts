@@ -16,7 +16,6 @@ import { defineLocale } from "ngx-bootstrap/chronos";
 import es from "@angular/common/locales/es";
 import { registerLocaleData } from "@angular/common";
 import { LOCALE_ID } from "@angular/core";
-import { CrearClienteComponent } from './feature/crear-cliente/crear-cliente.component';
 import { MoviestoreComponent } from './feature/moviestore/moviestore.component';
 import { CrearPeliculaComponent } from './feature/crear-pelicula/crear-pelicula.component';
 import { CrearOrdenComponent } from './feature/crear-orden/crear-orden.component';
@@ -30,7 +29,6 @@ registerLocaleData(es);
 @NgModule({
   declarations: [
     AppComponent,
-    CrearClienteComponent,
     MoviestoreComponent,
     CrearPeliculaComponent,
     CrearOrdenComponent,

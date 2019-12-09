@@ -119,14 +119,14 @@ export class CrearClienteComponent implements OnInit {
 
   confirmVolver() {
     swal({
-      title: this.translate.instant("alerts.confirm"),
-      text: this.translate.instant("alerts.sure_to_volver"),
+      title: "Volver atras",
+      text: "volver atras",
       type: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: this.translate.instant("buttons.yes"),
-      cancelButtonText: this.translate.instant("buttons.cancel")
+      confirmButtonText: "Si",
+      cancelButtonText: "Cancelar"
     }).then(result => {
       if (result.value) {
         this.router.navigate(["/movie-store"]);
