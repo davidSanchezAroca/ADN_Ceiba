@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { TranslateService } from "@ngx-translate/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import swal from "sweetalert2";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
@@ -21,7 +20,6 @@ export class CrearOrdenComponent implements OnInit {
   public myForm: FormGroup;
 
   constructor(
-    private translate: TranslateService,
     private router: Router,
     private service: RestService,
     private route: ActivatedRoute
@@ -71,7 +69,7 @@ export class CrearOrdenComponent implements OnInit {
       cedula:controls["cedula"].value
       
     };
-    let url = `http://localhost:8080/orden/agregar`;
+    let url = `api/orden/agregar`;
 
     let data = {
       "fechaOrden":datosOrden.fechaOrden,
@@ -88,39 +86,39 @@ export class CrearOrdenComponent implements OnInit {
       let result = data;
       if (result) {
         swal({
-          title: this.translate.instant("alerts.success"),
-          text: this.translate.instant("alerts.stored_urgencia"),
+          title: "Exitoso",
+          text: "Orden creada",
           type: "success",
           showCancelButton: false,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: this.translate.instant("buttons.ok"),
+          confirmButtonText: "Ok",
         }).then(result => {
 
           this.router.navigate(["/movie-store"]);
         });
       } else {
         swal({
-          title: this.translate.instant("alerts.error"),
-          text: this.translate.instant("alerts.cannot_delete_urgencia"),
+          title: "Error",
+          text: "Error creando la orden",
           type: "error",
           showCancelButton: false,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: this.translate.instant("buttons.ok"),
+          confirmButtonText: "Ok",
         }).then(result => {
           return false;
         });
       }
     }, err => {
       swal({
-        title: this.translate.instant("alerts.error"),
-        text: this.translate.instant("Verifique las fechas y cedula de orden"),
+        title: "Error",
+        text: "Verifique las fechas y cedula de usuario",
         type: "error",
         showCancelButton: false,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: this.translate.instant("buttons.ok"),
+        confirmButtonText: "Ok",
       }).then(result => {
         return false;
       });
@@ -129,14 +127,14 @@ export class CrearOrdenComponent implements OnInit {
 
   confirmVolver() {
     swal({
-      title: this.translate.instant("alerts.confirm"),
-      text: this.translate.instant("alerts.sure_to_volver"),
+      title: "Confirmar",
+      text: "Volver atras",
       type: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: this.translate.instant("buttons.yes"),
-      cancelButtonText: this.translate.instant("buttons.cancel")
+      confirmButtonText: "Si",
+      cancelButtonText: "Cancelar"
     }).then(result => {
       if (result.value) {
         this.router.navigate(["/movie-store"]);

@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { TranslateService } from "@ngx-translate/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import swal from "sweetalert2";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
@@ -18,7 +17,6 @@ export class CrearPeliculaComponent implements OnInit {
   private valor:number = null;
   public myForm: FormGroup;
   constructor(
-    private translate: TranslateService,
     private router: Router,
     private service: RestService,
     private route: ActivatedRoute
@@ -62,7 +60,7 @@ export class CrearPeliculaComponent implements OnInit {
       valor: controls["valor"].value,
       
     };
-    let url = `http://localhost:8080/pelicula/agregar`;
+    let url = `api/pelicula/agregar`;
 
     let data = {
       "nombre": datosPelicula.nombre,
@@ -73,26 +71,26 @@ export class CrearPeliculaComponent implements OnInit {
       let result = data;
       if (result) {
         swal({
-          title: this.translate.instant("alerts.success"),
-          text: this.translate.instant("alerts.stored_urgencia"),
+          title: "Proceso exitoso",
+          text: "pelicula guardada",
           type: "success",
           showCancelButton: false,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: this.translate.instant("buttons.ok"),
+          confirmButtonText: "ok",
         }).then(result => {
 
           this.router.navigate(["/movie-store"]);
         });
       } else {
         swal({
-          title: this.translate.instant("alerts.error"),
-          text: this.translate.instant("alerts.cannot_delete_urgencia"),
+          title:"Error",
+          text: "Error al crear la pelicula",
           type: "error",
           showCancelButton: false,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: this.translate.instant("buttons.ok"),
+          confirmButtonText:"Ok",
         }).then(result => {
           return false;
         });
@@ -105,14 +103,14 @@ export class CrearPeliculaComponent implements OnInit {
   
   confirmVolver() {
     swal({
-      title: this.translate.instant("alerts.confirm"),
-      text: this.translate.instant("alerts.sure_to_volver"),
+      title: "Confirmar",
+      text: "Volver atras",
       type: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: this.translate.instant("buttons.yes"),
-      cancelButtonText: this.translate.instant("buttons.cancel")
+      confirmButtonText: "Si",
+      cancelButtonText: "Cancelar"
     }).then(result => {
       if (result.value) {
         this.router.navigate(["/movie-store"]);

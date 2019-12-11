@@ -1,33 +1,34 @@
 <div class="create-container">
-  <h1 *ngIf="!editing">
-      {{ "forms.create_movie" | translate }}
+  <h1>
+    Crear pelicula
   </h1>
-  <h1 *ngIf="editing">
-      {{ "forms.edit_movie" | translate }}
-  </h1>
-    <div class="form">
-      <form [formGroup]="myForm">
-        <div class="form-group">
-          <label>{{ "forms.name" | translate }}</label>
-          <input id="name" type="text" class="form-control" formControlName="nombre" />
-          <span *ngIf="controlHasError('nombre', 'required')">
-            <strong>{{ "validation.required_field" | translate }}</strong>
-          </span>
-        </div>
-        <div class="form-group">
-          <label>{{ "forms.value" | translate }}</label>
-          <input id="valor" type="text" class="form-control" formControlName="valor" />
-          <span *ngIf="controlHasError('valor', 'required')">
-            <strong>{{ "validation.required_field" | translate }}</strong>
-          </span>
-        </div>
-        <button id="botonCrearPelicula" class="btn btn-primary" (click)="store()">
-          {{ "forms.save" | translate }}
-        </button>
-        <p> </p>
-        <button id="botonVolver" class="btn btn-primary" (click)="confirmVolver()">
-            {{ "forms.return" | translate }}
-        </button>
-      </form>
+  <div class="card">
+    <div class="card-body">
+      <div class="form">
+        <form [formGroup]="myForm">
+          <div class="form-group">
+            <label>Nombre</label>
+            <input id="name" type="text" class="form-control" formControlName="nombre" />
+            <span *ngIf="controlHasError('nombre', 'required')">
+              <strong>*Campo requerido</strong>
+            </span>
+          </div>
+          <div class="form-group">
+            <label>Valor pelicula</label>
+            <input id="valor" type="text" class="form-control" formControlName="valor" />
+            <span *ngIf="controlHasError('valor', 'required')">
+              <strong>*Campo requerido</strong>
+            </span>
+          </div>
+          <button id="botonCrearPelicula" class="btn btn-success" (click)="store()">
+            Guardar
+          </button>
+          <p> </p>
+          <button id="botonVolver" class="btn btn-primary" (click)="confirmVolver()">
+            Volver
+          </button>
+        </form>
+      </div>
     </div>
+  </div>
 </div>

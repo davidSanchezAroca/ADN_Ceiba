@@ -1,11 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListarOrdenComponent } from './feature/listar-orden/listar-orden.component';
 import { MoviestoreComponent } from './feature/moviestore/moviestore.component';
-import { CrearPeliculaComponent } from './feature/crear-pelicula/crear-pelicula.component';
-import { CrearOrdenComponent } from './feature/crear-orden/crear-orden.component';
-import { ListarPeliculaComponent } from './feature/listar-pelicula/listar-pelicula.component';
-import { ListarClienteComponent } from './feature/listar-cliente/listar-cliente.component';
 
 
 
@@ -15,16 +10,33 @@ const routes: Routes = [
   {
     path: "",
     children: [
-      { path: "movie-store", component: MoviestoreComponent },
-      { path: "listar-orden-form", component: ListarOrdenComponent },
-      { path: "listar-pelicula-form", component: ListarPeliculaComponent },
-      { path: "pelicula-form", component: CrearPeliculaComponent },
-      { path: "orden-form", component: CrearOrdenComponent },
+      { path: "movie-store", 
+        component:MoviestoreComponent
+      },
+      {
+        path: "listar-orden-form",
+        loadChildren: () => import('./feature/listar-orden/listar-orden.module').then(m => m.ListarOrdenModule)
+      },
+      {
+        path: "listar-pelicula-form",
+        loadChildren: () => import('./feature/listar-pelicula/listar-pelicula.module').then(m => m.ListarPeliculaModule)
+      },
+      {
+        path: "pelicula-form",
+        loadChildren: () => import('./feature/crear-pelicula/crear-pelicula.module').then(m => m.CrearPeliculaModule)
+      },
+      {
+        path: "orden-form",
+        loadChildren: () => import('./feature/crear-orden/crear-orden.module').then(m => m.CrearOrdenModule)
+      },
       {
         path: 'cliente-form',
         loadChildren: () => import('./feature/crear-cliente/crear-cliente.module').then(m => m.CrearClienteModule)
       },
-      { path: "listar-cliente-form", component: ListarClienteComponent },
+      {
+        path: "listar-cliente-form",
+        loadChildren: () => import('./feature/listar-cliente/listar-cliente.module').then(m => m.ListarClienteModule)
+      },
       { path: '**', redirectTo: 'cliente-form' },
     ]
   }

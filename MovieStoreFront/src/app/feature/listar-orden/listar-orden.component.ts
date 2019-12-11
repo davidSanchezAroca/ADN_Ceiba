@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import swal from "sweetalert2";
-import { TranslateService } from '@ngx-translate/core';
 import { Router, ActivatedRoute } from "@angular/router";
 import { RestService } from 'src/app/core/services/rest.service';
 import { Orden } from 'src/app/shared/interfaces/orden';
@@ -21,7 +20,7 @@ export class ListarOrdenComponent implements OnInit {
   private cedula:string= null;
   public myForm: FormGroup;
 
-  constructor(private service: RestService, public translate: TranslateService, private router: Router,private route: ActivatedRoute) { }
+  constructor(private service: RestService,  private router: Router,private route: ActivatedRoute) { }
 
 
   ngOnInit() {
@@ -44,7 +43,7 @@ export class ListarOrdenComponent implements OnInit {
     const datosOrden = {
       cedula: controls["cedula"].value,
     };
-    let url = `http://localhost:8080/orden/listar/`+datosOrden.cedula;
+    let url = `api/orden/listar/`+datosOrden.cedula;
     this.service.queryExternalApi(url).subscribe(
       response => {
         let result = response.json();
@@ -62,14 +61,14 @@ export class ListarOrdenComponent implements OnInit {
 
   confirmVolver() {
     swal({
-      title: this.translate.instant("alerts.confirm"),
-      text: this.translate.instant("alerts.sure_to_volver"),
+      title: "Confirmar",
+      text: "Volver atras",
       type: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: this.translate.instant("buttons.yes"),
-      cancelButtonText: this.translate.instant("buttons.cancel")
+      confirmButtonText: "yes",
+      cancelButtonText: "Cancelar"
     }).then(result => {
       if (result.value) {
         this.router.navigate(["/movie-store"]);
@@ -79,14 +78,14 @@ export class ListarOrdenComponent implements OnInit {
 
   getPrecio(orden,cedula){
     swal({
-      title: this.translate.instant("alerts.confirm"),
-      text: this.translate.instant("alerts.sure_to_delete"),
+      title: "Confirmar",
+      text: "Error",
       type: "warning",
       showCancelButton: true,
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
-      confirmButtonText: this.translate.instant("buttons.yes"),
-      cancelButtonText: this.translate.instant("buttons.cancel")
+      confirmButtonText: "Si",
+      cancelButtonText: "Cancelar"
     }).then(result => {
       if (result.value) {
         this.calcularPrecio(orden,cedula);
@@ -103,7 +102,7 @@ export class ListarOrdenComponent implements OnInit {
       return;
     }
 
-    let url = `http://localhost:8080/orden/precio`;
+    let url = `api/orden/precio`;
     const datosOrden = {
       cedula: controls["cedula"].value,
     };
@@ -123,26 +122,26 @@ export class ListarOrdenComponent implements OnInit {
       let result = data;
       if (result) {
         swal({
-          title: this.translate.instant("alerts.success"),
-          text: this.translate.instant("alerts.stored_urgencia"),
+          title: "Exitoso",
+          text: "Lista cargada",
           type: "success",
           showCancelButton: false,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: this.translate.instant("buttons.ok"),
+          confirmButtonText: "Ok",
         }).then(result => {
 
           this.router.navigate(["/movie-store"]);
         });
       } else {
         swal({
-          title: this.translate.instant("alerts.error"),
-          text: this.translate.instant("alerts.cannot_delete_urgencia"),
+          title: "Error",
+          text: "Error listando",
           type: "error",
           showCancelButton: false,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: this.translate.instant("buttons.ok"),
+          confirmButtonText: "Ok",
         }).then(result => {
           return false;
         });
