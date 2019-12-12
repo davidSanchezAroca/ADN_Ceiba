@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { TranslateService } from "@ngx-translate/core";
 import { Router, ActivatedRoute } from "@angular/router";
 import swal from "sweetalert2";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
@@ -19,7 +18,6 @@ export class CrearClienteComponent implements OnInit {
   private fechaNacimiento: number = null;
   public myForm: FormGroup;
   constructor(
-    private translate: TranslateService,
     private router: Router,
     private service: RestService,
     private route: ActivatedRoute
@@ -78,39 +76,39 @@ export class CrearClienteComponent implements OnInit {
       console.log(result);
       if (result) {
         swal({
-          title: this.translate.instant("alerts.success"),
-          text: this.translate.instant("alerts.stored_urgencia"),
+          title: "Exitoso",
+          text: "Cliente creado",
           type: "success",
           showCancelButton: false,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: this.translate.instant("buttons.ok"),
+          confirmButtonText: "Ok",
         }).then(result => {
 
           this.router.navigate(["/movie-store"]);
         });
       } else {
         swal({
-          title: this.translate.instant("alerts.error"),
-          text: this.translate.instant("alerts.cannot_delete_urgencia"),
+          title: "Error",
+          text:"Error",
           type: "error",
           showCancelButton: false,
           confirmButtonColor: "#3085d6",
           cancelButtonColor: "#d33",
-          confirmButtonText: this.translate.instant("buttons.ok"),
+          confirmButtonText: "Ok",
         }).then(result => {
           return false;
         });
       }
     }, err => {
       swal({
-        title: this.translate.instant("alerts.error"),
-        text: this.translate.instant("ya existe el cliente"),
+        title: "Error",
+        text: "Ya existe cliente",
         type: "error",
         showCancelButton: false,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: this.translate.instant("buttons.ok"),
+        confirmButtonText:"Ok",
       }).then(result => {
         return false;
       });

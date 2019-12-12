@@ -1,0 +1,34 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [ngClass]="{hidden: !(isHandset$ | async)}"
+    [mode]="(isHandset$ | async) ? 'over' : 'side'" [opened]="!(isHandset$ | async)">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/cliente-form">Crear cliente</a>
+      <a mat-list-item routerLink="/listar-cliente-form">Listar Cliente</a>
+      <a mat-list-item routerLink="/pelicula-form">Crear pelicula</a>
+      <a mat-list-item routerLink="/listar-pelicula-form">Listar peliculas</a>
+      <a mat-list-item routerLink="/orden-form">Crear orden</a>
+      <a mat-list-item routerLink="/listar-orden-form">listar orden</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span>Movie Store</span>
+      <span class="spacer"></span>
+      <div *ngIf="!(isHandset$ | async)">
+      <button mat-button routerLink="/cliente-form">Crear cliente </button>
+      <button mat-button routerLink="/listar-cliente-form">Listar cliente </button>
+      <button mat-button routerLink="/pelicula-form">Crear pelicula </button>
+      <button mat-button routerLink="/listar-pelicula-form">Listar peliculas</button>
+      <button mat-button routerLink="/orden-form">Crear orden</button>
+      <button mat-button routerLink="/listar-orden-form">listar orden</button>
+    </div>
+    </mat-toolbar>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>
